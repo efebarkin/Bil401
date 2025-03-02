@@ -1,0 +1,10 @@
+
+pyspark
+pandas
+numpy
+matplotlib
+networkx
+graphframes
+scikit-learn
+seaborn
+logging
