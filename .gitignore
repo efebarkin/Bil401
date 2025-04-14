@@ -1,0 +1,25 @@
+# Veri dosyaları
+archive/
+
+# Python önbellek dosyaları
+src/__pycache__/
+*/__pycache__/
+*.py[cod]
+*$py.class
+
+# Geçici dosyalar
+src/spark_temp/
+temp/
+
+# Log dosyaları
+movie_recommender.log
+*.log
+
+# Spark dosyaları
+metastore_db/
+spark-warehouse/
+
+# Diğer geçici dosyalar
+.DS_Store
+.idea/
+.vscode/

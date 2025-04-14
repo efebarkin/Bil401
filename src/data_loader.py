@@ -8,8 +8,10 @@ from pyspark.ml.feature import StringIndexer, VectorAssembler
 class DataLoader:
     def __init__(self, spark):
         self.spark = spark
-        self.data_path = "c:/Users/efeba/Desktop/archive"
+        # Veri yolunu projenin ana dizinindeki archive klasu00f6ru00fcne gu00fcncelle
+        self.data_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "archive")
         self.setup_logging()
+        self.logger.info(f"Data path set to: {self.data_path}")
         
     def setup_logging(self):
         """Loglama sistemini ayarlar"""
@@ -72,20 +74,36 @@ class DataLoader:
         """
         self.logger.info("Loading ratings data...")
         
-        ratings_df = self.spark.read.csv(
-            os.path.join(self.data_path, "rating.csv"),
-            header=True,
-            inferSchema=True
-        )
-        
-        # Veri doğrulama
-        ratings_df = self.validate_dataframe(ratings_df, "ratings")
-        
-        # Eksik değerleri işle
-        ratings_df = self.handle_missing_values(ratings_df)
-        
-        # Rating kolonunu double'a çevir
-        ratings_df = ratings_df.withColumn("rating", col("rating").cast(DoubleType()))
+        try:
+            # Dosyanın var olduğunu kontrol et
+            ratings_file = os.path.join(self.data_path, "rating.csv")
+            if not os.path.exists(ratings_file):
+                self.logger.error(f"Ratings file not found at: {ratings_file}")
+                raise FileNotFoundError(f"Ratings file not found at: {ratings_file}")
+                
+            self.logger.info(f"Loading ratings from: {ratings_file}")
+            
+            # CSV dosyasını oku - daha fazla seçenek ile
+            ratings_df = self.spark.read.option("header", "true") \
+                                     .option("inferSchema", "true") \
+                                     .option("mode", "DROPMALFORMED") \
+                                     .csv(ratings_file)
+            
+            # Veri doğrulama
+            ratings_df = self.validate_dataframe(ratings_df, "ratings")
+            
+            # Eksik değerleri işle
+            ratings_df = self.handle_missing_values(ratings_df)
+            
+            # Rating kolonunu double'a çevir
+            ratings_df = ratings_df.withColumn("rating", col("rating").cast(DoubleType()))
+            
+            return ratings_df
+        except Exception as e:
+            self.logger.error(f"Error loading ratings data: {str(e)}")
+            # Boş bir DataFrame döndür
+            empty_schema = self.spark.createDataFrame([], "userId INT, movieId INT, rating DOUBLE, timestamp STRING")
+            return empty_schema
         
         # Timestamp'i işle
         ratings_df = ratings_df.withColumn("timestamp", col("timestamp").cast("timestamp"))
@@ -99,20 +117,36 @@ class DataLoader:
         """
         self.logger.info("Loading movies data...")
         
-        movies_df = self.spark.read.csv(
-            os.path.join(self.data_path, "movie.csv"),
-            header=True,
-            inferSchema=True
-        )
-        
-        # Veri doğrulama
-        movies_df = self.validate_dataframe(movies_df, "movies")
-        
-        # Eksik değerleri işle
-        movies_df = self.handle_missing_values(movies_df)
-        
-        # Genres'i array'e çevir ve one-hot encoding uygula
-        movies_df = movies_df.withColumn("genres", split(col("genres"), "\\|"))
+        try:
+            # Dosyanın var olduğunu kontrol et
+            movies_file = os.path.join(self.data_path, "movie.csv")
+            if not os.path.exists(movies_file):
+                self.logger.error(f"Movies file not found at: {movies_file}")
+                raise FileNotFoundError(f"Movies file not found at: {movies_file}")
+                
+            self.logger.info(f"Loading movies from: {movies_file}")
+            
+            # CSV dosyasını oku - daha fazla seçenek ile
+            movies_df = self.spark.read.option("header", "true") \
+                                     .option("inferSchema", "true") \
+                                     .option("mode", "DROPMALFORMED") \
+                                     .csv(movies_file)
+            
+            # Veri doğrulama
+            movies_df = self.validate_dataframe(movies_df, "movies")
+            
+            # Eksik değerleri işle
+            movies_df = self.handle_missing_values(movies_df)
+            
+            # Genres'i array'e çevir ve one-hot encoding uygula
+            movies_df = movies_df.withColumn("genres", split(col("genres"), "\\|"))
+            
+            return movies_df
+        except Exception as e:
+            self.logger.error(f"Error loading movies data: {str(e)}")
+            # Boş bir DataFrame döndür
+            empty_schema = self.spark.createDataFrame([], "movieId INT, title STRING, genres ARRAY<STRING>")
+            return empty_schema
         
         # Yıl bilgisini title'dan çıkar
         movies_df = movies_df.withColumn(
@@ -207,6 +241,29 @@ class DataLoader:
             avg("rating").alias("rating_mean"),
             stddev("rating").alias("rating_stddev")
         )
+        
+    def get_top_rated_movies(self, ratings_df, movies_df, min_ratings=100):
+        """
+        En yüksek puanlı filmleri döndürür
+        min_ratings: Minimum değerlendirme sayısı
+        """
+        # Film başına ortalama puan ve değerlendirme sayısını hesapla
+        movie_stats = ratings_df.groupBy("movieId").agg(
+            count("rating").alias("rating_count"),
+            avg("rating").alias("avg_rating")
+        )
+        
+        # Minimum değerlendirme sayısına sahip filmleri filtrele
+        popular_movies = movie_stats.filter(col("rating_count") >= min_ratings)
+        
+        # Film bilgileriyle birleştir
+        top_movies = popular_movies.join(
+            movies_df, "movieId", "inner"
+        ).select(
+            "movieId", "title", "genres", "rating_count", "avg_rating"
+        ).orderBy(col("avg_rating").desc())
+        
+        return top_movies
 
     def get_popular_genres(self, movies_df, ratings_df, n=10):
         """

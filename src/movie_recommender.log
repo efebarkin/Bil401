@@ -304,3 +304,980 @@ Traceback (most recent call last):
   File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
     return self._sock.recv_into(b)
 KeyboardInterrupt
+2025-03-19 22:37:42,421 - INFO - Loading data...
+2025-03-19 22:37:42,422 - INFO - Loading ratings data...
+2025-03-19 22:38:14,235 - INFO - 
+Validating ratings DataFrame:
+2025-03-19 22:38:19,611 - INFO - Shape: 20000263 rows, 4 columns
+2025-03-19 22:40:35,731 - INFO - Loading movies data...
+2025-03-19 22:40:36,296 - INFO - 
+Validating movies DataFrame:
+2025-03-19 22:40:36,461 - INFO - Shape: 27278 rows, 3 columns
+2025-03-19 22:40:38,561 - INFO - Loading tags data...
+2025-03-19 22:40:39,443 - INFO - 
+Validating tags DataFrame:
+2025-03-19 22:40:39,732 - INFO - Shape: 465564 rows, 4 columns
+2025-03-19 22:40:41,937 - WARNING - Column timestamp has 3 null values
+2025-03-19 22:40:45,816 - INFO - Loading genome scores data...
+2025-03-19 22:40:54,570 - INFO - 
+Validating genome scores DataFrame:
+2025-03-19 22:40:56,608 - INFO - Shape: 11709768 rows, 3 columns
+2025-03-19 22:41:52,623 - INFO - Loading genome tags data...
+2025-03-19 22:41:52,881 - INFO - 
+Validating genome tags DataFrame:
+2025-03-19 22:41:53,031 - INFO - Shape: 1128 rows, 2 columns
+2025-03-19 22:42:07,287 - INFO - Training ALS model...
+2025-03-19 22:42:07,356 - INFO - Training model with cross validation...
+2025-03-19 23:06:35,541 - ERROR - Error during model training: An error occurred while calling o1889.fit.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 5 in stage 880.0 failed 1 times, most recent failure: Lost task 5.0 in stage 880.0 (TID 1959) (kubernetes.docker.internal executor driver): org.apache.spark.SparkException: [FAILED_RENAME_TEMP_FILE] Failed to rename temp file C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data.f8293e3d-00e4-47a5-99fa-41162a34b129 to C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data as FileSystem.rename returned false.
+	at org.apache.spark.errors.SparkCoreErrors$.failedRenameTempFileError(SparkCoreErrors.scala:476)
+	at org.apache.spark.shuffle.IndexShuffleBlockResolver.writeMetadataFileAndCommit(IndexShuffleBlockResolver.scala:414)
+	at org.apache.spark.shuffle.sort.io.LocalDiskShuffleMapOutputWriter.commitAllPartitions(LocalDiskShuffleMapOutputWriter.java:118)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.writePartitionedData(BypassMergeSortShuffleWriter.java:235)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:180)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2393)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2414)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2433)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2458)
+	at org.apache.spark.rdd.RDD.count(RDD.scala:1296)
+	at org.apache.spark.ml.recommendation.ALS$.train(ALS.scala:1090)
+	at org.apache.spark.ml.recommendation.ALS.$anonfun$fit$1(ALS.scala:737)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:213)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:714)
+	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:616)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.apache.spark.SparkException: [FAILED_RENAME_TEMP_FILE] Failed to rename temp file C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data.f8293e3d-00e4-47a5-99fa-41162a34b129 to C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data as FileSystem.rename returned false.
+	at org.apache.spark.errors.SparkCoreErrors$.failedRenameTempFileError(SparkCoreErrors.scala:476)
+	at org.apache.spark.shuffle.IndexShuffleBlockResolver.writeMetadataFileAndCommit(IndexShuffleBlockResolver.scala:414)
+	at org.apache.spark.shuffle.sort.io.LocalDiskShuffleMapOutputWriter.commitAllPartitions(LocalDiskShuffleMapOutputWriter.java:118)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.writePartitionedData(BypassMergeSortShuffleWriter.java:235)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:180)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	... 1 more
+
+2025-03-19 23:06:35,606 - ERROR - Initialization error: An error occurred while calling o1889.fit.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 5 in stage 880.0 failed 1 times, most recent failure: Lost task 5.0 in stage 880.0 (TID 1959) (kubernetes.docker.internal executor driver): org.apache.spark.SparkException: [FAILED_RENAME_TEMP_FILE] Failed to rename temp file C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data.f8293e3d-00e4-47a5-99fa-41162a34b129 to C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data as FileSystem.rename returned false.
+	at org.apache.spark.errors.SparkCoreErrors$.failedRenameTempFileError(SparkCoreErrors.scala:476)
+	at org.apache.spark.shuffle.IndexShuffleBlockResolver.writeMetadataFileAndCommit(IndexShuffleBlockResolver.scala:414)
+	at org.apache.spark.shuffle.sort.io.LocalDiskShuffleMapOutputWriter.commitAllPartitions(LocalDiskShuffleMapOutputWriter.java:118)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.writePartitionedData(BypassMergeSortShuffleWriter.java:235)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:180)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2393)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2414)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2433)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2458)
+	at org.apache.spark.rdd.RDD.count(RDD.scala:1296)
+	at org.apache.spark.ml.recommendation.ALS$.train(ALS.scala:1090)
+	at org.apache.spark.ml.recommendation.ALS.$anonfun$fit$1(ALS.scala:737)
+	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
+	at scala.util.Try$.apply(Try.scala:213)
+	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
+	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:714)
+	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:616)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.apache.spark.SparkException: [FAILED_RENAME_TEMP_FILE] Failed to rename temp file C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data.f8293e3d-00e4-47a5-99fa-41162a34b129 to C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data as FileSystem.rename returned false.
+	at org.apache.spark.errors.SparkCoreErrors$.failedRenameTempFileError(SparkCoreErrors.scala:476)
+	at org.apache.spark.shuffle.IndexShuffleBlockResolver.writeMetadataFileAndCommit(IndexShuffleBlockResolver.scala:414)
+	at org.apache.spark.shuffle.sort.io.LocalDiskShuffleMapOutputWriter.commitAllPartitions(LocalDiskShuffleMapOutputWriter.java:118)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.writePartitionedData(BypassMergeSortShuffleWriter.java:235)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:180)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	... 1 more
+
+2025-03-19 23:06:36,921 - INFO - Closing down clientserver connection
+2025-03-19 23:06:36,988 - INFO - Closing down clientserver connection
+2025-03-19 23:13:09,556 - INFO - Loading data...
+2025-03-19 23:13:09,557 - INFO - Loading ratings data...
+2025-03-19 23:13:44,801 - INFO - 
+Validating ratings DataFrame:
+2025-03-19 23:13:52,410 - INFO - Shape: 20000263 rows, 4 columns
+2025-03-19 23:14:04,009 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+RuntimeError: reentrant call inside <_io.BufferedReader name=3632>
+2025-03-19 23:14:04,017 - INFO - Closing down clientserver connection
+2025-03-19 23:14:04,018 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+RuntimeError: reentrant call inside <_io.BufferedReader name=3632>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-03-19 23:14:04,026 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
+    return f(*a, **kw)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o33.sc
+2025-03-19 23:14:04,089 - INFO - Closing down clientserver connection
+2025-03-19 23:14:04,089 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
+    return f(*a, **kw)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o33.sc
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-03-19 23:14:04,091 - INFO - Closing down clientserver connection
+2025-03-19 23:14:04,092 - ERROR - Initialization error: An error occurred while calling o56.count
+2025-03-19 23:14:04,143 - INFO - Closing down clientserver connection
+2025-04-14 15:43:36,565 - INFO - Loading data...
+2025-04-14 15:43:36,566 - INFO - Loading ratings data...
+2025-04-14 15:43:55,673 - INFO - 
+Validating ratings DataFrame:
+2025-04-14 15:43:59,995 - INFO - Shape: 20000263 rows, 4 columns
+2025-04-14 15:45:05,190 - INFO - Loading movies data...
+2025-04-14 15:45:05,449 - INFO - 
+Validating movies DataFrame:
+2025-04-14 15:45:05,538 - INFO - Shape: 27278 rows, 3 columns
+2025-04-14 15:45:06,652 - INFO - Loading tags data...
+2025-04-14 15:45:07,049 - INFO - 
+Validating tags DataFrame:
+2025-04-14 15:45:07,174 - INFO - Shape: 465564 rows, 4 columns
+2025-04-14 15:45:08,100 - WARNING - Column timestamp has 3 null values
+2025-04-14 15:45:09,528 - INFO - Loading genome scores data...
+2025-04-14 15:45:14,264 - INFO - 
+Validating genome scores DataFrame:
+2025-04-14 15:45:15,303 - INFO - Shape: 11709768 rows, 3 columns
+2025-04-14 15:45:50,194 - INFO - Loading genome tags data...
+2025-04-14 15:45:50,339 - INFO - 
+Validating genome tags DataFrame:
+2025-04-14 15:45:50,398 - INFO - Shape: 1128 rows, 2 columns
+2025-04-14 15:46:04,424 - INFO - Training ALS model...
+2025-04-14 15:46:04,579 - INFO - Training model with cross validation...
+2025-04-14 15:46:14,559 - ERROR - Error during model training: An error occurred while calling o468.fit.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 1 in stage 152.0 failed 1 times, most recent failure: Lost task 1.0 in stage 152.0 (TID 376) (kubernetes.docker.internal executor driver): org.apache.spark.memory.SparkOutOfMemoryError: error while calling spill() on org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter@40e2e6a5 : C:\Users\efeba\AppData\Local\Temp\spark_temp\blockmgr-9499b49d-c435-4f4b-8531-6123840fee13\3b\temp_local_d0eff8bd-3b1b-4f1a-b03e-ada1ecdda421 (Sistem belirtilen yolu bulamýyor)
+	at org.apache.spark.memory.TaskMemoryManager.trySpillAndAcquire(TaskMemoryManager.java:254)
+	at org.apache.spark.memory.TaskMemoryManager.acquireExecutionMemory(TaskMemoryManager.java:191)
+	at org.apache.spark.memory.TaskMemoryManager.allocatePage(TaskMemoryManager.java:318)
+	at org.apache.spark.memory.MemoryConsumer.allocateArray(MemoryConsumer.java:96)
+	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.growPointerArrayIfNecessary(UnsafeExternalSorter.java:393)
+	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.allocateMemoryForRecordIfNecessary(UnsafeExternalSorter.java:449)
+	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.insertRecord(UnsafeExternalSorter.java:487)
+	at org.apache.spark.sql.execution.UnsafeExternalRowSorter.insertRow(UnsafeExternalRowSorter.java:138)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.sort_addToSorter_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at org.apache.spark.sql.execution.columnar.DefaultCachedBatchSerializer$$anon$1.hasNext(InMemoryRelation.scala:119)
+	at org.apache.spark.sql.execution.columnar.CachedRDDBuilder$$anon$2.hasNext(InMemoryRelation.scala:288)
+	at org.apache.spark.storage.memory.MemoryStore.putIterator(MemoryStore.scala:223)
+	at org.apache.spark.storage.memory.MemoryStore.putIteratorAsValues(MemoryStore.scala:302)
+	at org.apache.spark.storage.BlockManager.$anonfun$doPutIterator$1(BlockManager.scala:1597)
+	at org.apache.spark.storage.BlockManager.org$apache$spark$storage$BlockManager$$doPut(BlockManager.scala:1524)
+	at org.apache.spark.storage.BlockManager.doPutIterator(BlockManager.scala:1588)
+	at org.apache.spark.storage.BlockManager.getOrElseUpdate(BlockManager.scala:1389)
+	at org.apache.spark.storage.BlockManager.getOrElseUpdateRDDBlock(BlockManager.scala:1343)
+	at org.apache.spark.rdd.RDD.getOrCompute(RDD.scala:379)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:329)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+Caused by: org.apache.spark.memory.SparkOutOfMemoryError: error while calling spill() on org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter@40e2e6a5 : C:\Users\efeba\AppData\Local\Temp\spark_temp\blockmgr-9499b49d-c435-4f4b-8531-6123840fee13\3b\temp_local_d0eff8bd-3b1b-4f1a-b03e-ada1ecdda421 (Sistem belirtilen yolu bulamýyor)
+	at org.apache.spark.memory.TaskMemoryManager.trySpillAndAcquire(TaskMemoryManager.java:254)
+	at org.apache.spark.memory.TaskMemoryManager.acquireExecutionMemory(TaskMemoryManager.java:191)
+	at org.apache.spark.memory.TaskMemoryManager.allocatePage(TaskMemoryManager.java:318)
+	at org.apache.spark.memory.MemoryConsumer.allocateArray(MemoryConsumer.java:96)
+	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.growPointerArrayIfNecessary(UnsafeExternalSorter.java:393)
+	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.allocateMemoryForRecordIfNecessary(UnsafeExternalSorter.java:449)
+	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.insertRecord(UnsafeExternalSorter.java:487)
+	at org.apache.spark.sql.execution.UnsafeExternalRowSorter.insertRow(UnsafeExternalRowSorter.java:138)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.sort_addToSorter_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at org.apache.spark.sql.execution.columnar.DefaultCachedBatchSerializer$$anon$1.hasNext(InMemoryRelation.scala:119)
+	at org.apache.spark.sql.execution.columnar.CachedRDDBuilder$$anon$2.hasNext(InMemoryRelation.scala:288)
+	at org.apache.spark.storage.memory.MemoryStore.putIterator(MemoryStore.scala:223)
+	at org.apache.spark.storage.memory.MemoryStore.putIteratorAsValues(MemoryStore.scala:302)
+	at org.apache.spark.storage.BlockManager.$anonfun$doPutIterator$1(BlockManager.scala:1597)
+	at org.apache.spark.storage.BlockManager.org$apache$spark$storage$BlockManager$$doPut(BlockManager.scala:1524)
+	at org.apache.spark.storage.BlockManager.doPutIterator(BlockManager.scala:1588)
+	at org.apache.spark.storage.BlockManager.getOrElseUpdate(BlockManager.scala:1389)
+	at org.apache.spark.storage.BlockManager.getOrElseUpdateRDDBlock(BlockManager.scala:1343)
+	at org.apache.spark.rdd.RDD.getOrCompute(RDD.scala:379)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:329)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+2025-04-14 15:46:14,569 - ERROR - Error training ALS model: An error occurred while calling o468.fit.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 1 in stage 152.0 failed 1 times, most recent failure: Lost task 1.0 in stage 152.0 (TID 376) (kubernetes.docker.internal executor driver): org.apache.spark.memory.SparkOutOfMemoryError: error while calling spill() on org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter@40e2e6a5 : C:\Users\efeba\AppData\Local\Temp\spark_temp\blockmgr-9499b49d-c435-4f4b-8531-6123840fee13\3b\temp_local_d0eff8bd-3b1b-4f1a-b03e-ada1ecdda421 (Sistem belirtilen yolu bulamýyor)
+	at org.apache.spark.memory.TaskMemoryManager.trySpillAndAcquire(TaskMemoryManager.java:254)
+	at org.apache.spark.memory.TaskMemoryManager.acquireExecutionMemory(TaskMemoryManager.java:191)
+	at org.apache.spark.memory.TaskMemoryManager.allocatePage(TaskMemoryManager.java:318)
+	at org.apache.spark.memory.MemoryConsumer.allocateArray(MemoryConsumer.java:96)
+	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.growPointerArrayIfNecessary(UnsafeExternalSorter.java:393)
+	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.allocateMemoryForRecordIfNecessary(UnsafeExternalSorter.java:449)
+	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.insertRecord(UnsafeExternalSorter.java:487)
+	at org.apache.spark.sql.execution.UnsafeExternalRowSorter.insertRow(UnsafeExternalRowSorter.java:138)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.sort_addToSorter_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at org.apache.spark.sql.execution.columnar.DefaultCachedBatchSerializer$$anon$1.hasNext(InMemoryRelation.scala:119)
+	at org.apache.spark.sql.execution.columnar.CachedRDDBuilder$$anon$2.hasNext(InMemoryRelation.scala:288)
+	at org.apache.spark.storage.memory.MemoryStore.putIterator(MemoryStore.scala:223)
+	at org.apache.spark.storage.memory.MemoryStore.putIteratorAsValues(MemoryStore.scala:302)
+	at org.apache.spark.storage.BlockManager.$anonfun$doPutIterator$1(BlockManager.scala:1597)
+	at org.apache.spark.storage.BlockManager.org$apache$spark$storage$BlockManager$$doPut(BlockManager.scala:1524)
+	at org.apache.spark.storage.BlockManager.doPutIterator(BlockManager.scala:1588)
+	at org.apache.spark.storage.BlockManager.getOrElseUpdate(BlockManager.scala:1389)
+	at org.apache.spark.storage.BlockManager.getOrElseUpdateRDDBlock(BlockManager.scala:1343)
+	at org.apache.spark.rdd.RDD.getOrCompute(RDD.scala:379)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:329)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+Caused by: org.apache.spark.memory.SparkOutOfMemoryError: error while calling spill() on org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter@40e2e6a5 : C:\Users\efeba\AppData\Local\Temp\spark_temp\blockmgr-9499b49d-c435-4f4b-8531-6123840fee13\3b\temp_local_d0eff8bd-3b1b-4f1a-b03e-ada1ecdda421 (Sistem belirtilen yolu bulamýyor)
+	at org.apache.spark.memory.TaskMemoryManager.trySpillAndAcquire(TaskMemoryManager.java:254)
+	at org.apache.spark.memory.TaskMemoryManager.acquireExecutionMemory(TaskMemoryManager.java:191)
+	at org.apache.spark.memory.TaskMemoryManager.allocatePage(TaskMemoryManager.java:318)
+	at org.apache.spark.memory.MemoryConsumer.allocateArray(MemoryConsumer.java:96)
+	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.growPointerArrayIfNecessary(UnsafeExternalSorter.java:393)
+	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.allocateMemoryForRecordIfNecessary(UnsafeExternalSorter.java:449)
+	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.insertRecord(UnsafeExternalSorter.java:487)
+	at org.apache.spark.sql.execution.UnsafeExternalRowSorter.insertRow(UnsafeExternalRowSorter.java:138)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.sort_addToSorter_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at org.apache.spark.sql.execution.columnar.DefaultCachedBatchSerializer$$anon$1.hasNext(InMemoryRelation.scala:119)
+	at org.apache.spark.sql.execution.columnar.CachedRDDBuilder$$anon$2.hasNext(InMemoryRelation.scala:288)
+	at org.apache.spark.storage.memory.MemoryStore.putIterator(MemoryStore.scala:223)
+	at org.apache.spark.storage.memory.MemoryStore.putIteratorAsValues(MemoryStore.scala:302)
+	at org.apache.spark.storage.BlockManager.$anonfun$doPutIterator$1(BlockManager.scala:1597)
+	at org.apache.spark.storage.BlockManager.org$apache$spark$storage$BlockManager$$doPut(BlockManager.scala:1524)
+	at org.apache.spark.storage.BlockManager.doPutIterator(BlockManager.scala:1588)
+	at org.apache.spark.storage.BlockManager.getOrElseUpdate(BlockManager.scala:1389)
+	at org.apache.spark.storage.BlockManager.getOrElseUpdateRDDBlock(BlockManager.scala:1343)
+	at org.apache.spark.rdd.RDD.getOrCompute(RDD.scala:379)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:329)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+2025-04-14 15:46:14,573 - INFO - Preparing content-based model...
+2025-04-14 15:46:14,574 - INFO - Preparing data for content-based filtering...
+2025-04-14 15:47:26,846 - ERROR - Initialization error: An error occurred while calling o1665.collectToPython.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 7 in stage 164.0 failed 1 times, most recent failure: Lost task 7.0 in stage 164.0 (TID 471) (kubernetes.docker.internal executor driver): java.io.FileNotFoundException: C:\Users\efeba\AppData\Local\Temp\spark_temp\blockmgr-9499b49d-c435-4f4b-8531-6123840fee13\30\temp_shuffle_97b43d7d-8e8b-4507-b20b-4001040cc3ec (Sistem belirtilen yolu bulamýyor)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.apache.spark.storage.DiskBlockObjectWriter.initialize(DiskBlockObjectWriter.scala:147)
+	at org.apache.spark.storage.DiskBlockObjectWriter.open(DiskBlockObjectWriter.scala:167)
+	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:330)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:171)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+Caused by: java.io.FileNotFoundException: C:\Users\efeba\AppData\Local\Temp\spark_temp\blockmgr-9499b49d-c435-4f4b-8531-6123840fee13\30\temp_shuffle_97b43d7d-8e8b-4507-b20b-4001040cc3ec (Sistem belirtilen yolu bulamýyor)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.apache.spark.storage.DiskBlockObjectWriter.initialize(DiskBlockObjectWriter.scala:147)
+	at org.apache.spark.storage.DiskBlockObjectWriter.open(DiskBlockObjectWriter.scala:167)
+	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:330)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:171)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+2025-04-14 15:47:26,945 - INFO - Closing down clientserver connection
+2025-04-14 15:47:26,950 - INFO - Closing down clientserver connection
+2025-04-14 17:11:39,647 - INFO - Loading data...
+2025-04-14 17:11:39,648 - INFO - Loading ratings data...
+2025-04-14 17:11:41,699 - INFO - Error while sending or receiving.
+Traceback (most recent call last):
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 503, in send_command
+    self.socket.sendall(command.encode("utf-8"))
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+2025-04-14 17:11:41,701 - INFO - Closing down clientserver connection
+2025-04-14 17:11:41,703 - INFO - Exception while sending command.
+Traceback (most recent call last):
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 503, in send_command
+    self.socket.sendall(command.encode("utf-8"))
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 506, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending
+2025-04-14 17:11:43,747 - INFO - Closing down clientserver connection
+2025-04-14 17:11:43,747 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 503, in send_command
+    self.socket.sendall(command.encode("utf-8"))
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 506, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1321, in __call__
+    answer = self.gateway_client.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1053, in send_command
+    response = self.send_command(command, binary=binary)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1036, in send_command
+    connection = self._get_connection()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 284, in _get_connection
+    connection = self._create_new_connection()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 291, in _create_new_connection
+    connection.connect_to_java_server()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 438, in connect_to_java_server
+    self.socket.connect((self.java_address, self.java_port))
+ConnectionRefusedError: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-04-14 17:11:43,748 - INFO - Closing down clientserver connection
+2025-04-14 17:11:43,748 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 503, in send_command
+    self.socket.sendall(command.encode("utf-8"))
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 506, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1321, in __call__
+    answer = self.gateway_client.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1053, in send_command
+    response = self.send_command(command, binary=binary)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1036, in send_command
+    connection = self._get_connection()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 284, in _get_connection
+    connection = self._create_new_connection()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 291, in _create_new_connection
+    connection.connect_to_java_server()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 438, in connect_to_java_server
+    self.socket.connect((self.java_address, self.java_port))
+ConnectionRefusedError: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-04-14 17:11:43,749 - INFO - Closing down clientserver connection
+2025-04-14 17:11:43,750 - INFO - Closing down clientserver connection
+2025-04-14 17:11:43,750 - ERROR - Initialization error: An error occurred while calling o53.csv
+2025-04-14 17:11:43,750 - INFO - Loading ratings data...
+2025-04-14 17:11:45,784 - INFO - Closing down clientserver connection
+2025-04-14 17:11:45,784 - ERROR - Fatal error in fallback initialization: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-04-14 17:11:45,809 - INFO - Closing down clientserver connection
+2025-04-14 17:11:45,867 - INFO - Closing down clientserver connection
+2025-04-14 17:18:35,634 - INFO - Data path set to: C:\Users\efeba\BIL401Proje\archive
+2025-04-14 17:18:35,685 - INFO - Loading data...
+2025-04-14 17:18:35,685 - INFO - Loading ratings data...
+2025-04-14 17:18:37,322 - ERROR - Initialization error: [PATH_NOT_FOUND] Path does not exist: file:/C:/Users/efeba/BIL401Proje/archive/rating.csv.
+2025-04-14 17:18:37,323 - INFO - Loading ratings data...
+2025-04-14 17:18:37,343 - ERROR - Fatal error in fallback initialization: [PATH_NOT_FOUND] Path does not exist: file:/C:/Users/efeba/BIL401Proje/archive/rating.csv.
+2025-04-14 17:18:37,361 - INFO - Closing down clientserver connection
+2025-04-14 17:20:29,354 - INFO - Data path set to: C:\Users\efeba\BIL401Proje\archive
+2025-04-14 17:20:29,396 - INFO - Loading data...
+2025-04-14 17:20:29,396 - INFO - Loading ratings data...
+2025-04-14 17:20:36,995 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+RuntimeError: reentrant call inside <_io.BufferedReader name=3536>
+2025-04-14 17:20:36,997 - INFO - Closing down clientserver connection
+2025-04-14 17:20:36,997 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+RuntimeError: reentrant call inside <_io.BufferedReader name=3536>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-04-14 17:20:36,999 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
+    return f(*a, **kw)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o37.sc
+2025-04-14 17:20:37,001 - INFO - Closing down clientserver connection
+2025-04-14 17:20:37,003 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
+    return f(*a, **kw)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o37.sc
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-04-14 17:20:37,004 - INFO - Closing down clientserver connection
+2025-04-14 17:20:37,004 - ERROR - Initialization error: An error occurred while calling o53.csv
+2025-04-14 17:20:37,004 - INFO - Loading ratings data...
+2025-04-14 17:20:37,588 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+2025-04-14 17:20:37,589 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "C:\Users\efeba\BIL401Proje\src\app.py", line 114, in initialize
+    ratings_df = data_loader.load_ratings()
+  File "C:\Users\efeba\BIL401Proje\src\data_loader.py", line 77, in load_ratings
+    ratings_df = self.spark.read.csv(
+  File "C:\spark\python\pyspark\sql\readwriter.py", line 740, in csv
+    return self._df(self._jreader.csv(self._spark._sc._jvm.PythonUtils.toSeq(path)))
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
+    return f(*a, **kw)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o53.csv
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+2025-04-14 17:20:37,590 - INFO - Closing down clientserver connection
+2025-04-14 17:20:37,592 - INFO - Closing down clientserver connection
+2025-04-14 17:20:37,592 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-04-14 17:20:37,592 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "C:\Users\efeba\BIL401Proje\src\app.py", line 114, in initialize
+    ratings_df = data_loader.load_ratings()
+  File "C:\Users\efeba\BIL401Proje\src\data_loader.py", line 77, in load_ratings
+    ratings_df = self.spark.read.csv(
+  File "C:\spark\python\pyspark\sql\readwriter.py", line 740, in csv
+    return self._df(self._jreader.csv(self._spark._sc._jvm.PythonUtils.toSeq(path)))
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
+    return f(*a, **kw)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o53.csv
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-04-14 17:20:37,594 - INFO - Closing down clientserver connection
+2025-04-14 17:20:37,594 - INFO - Closing down clientserver connection
+2025-04-14 17:20:37,595 - ERROR - Fatal error in fallback initialization: An error occurred while calling o60.csv
+2025-04-14 17:22:34,313 - INFO - Data path set to: C:\Users\efeba\BIL401Proje\archive
+2025-04-14 17:22:34,358 - INFO - Loading data...
+2025-04-14 17:22:34,358 - INFO - Loading ratings data...
+2025-04-14 17:22:34,358 - INFO - Loading ratings from: C:\Users\efeba\BIL401Proje\archive\rating.csv
+2025-04-14 17:22:41,003 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+RuntimeError: reentrant call inside <_io.BufferedReader name=3956>
+2025-04-14 17:22:41,004 - INFO - Closing down clientserver connection
+2025-04-14 17:22:41,005 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+RuntimeError: reentrant call inside <_io.BufferedReader name=3956>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-04-14 17:22:41,007 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
+    return f(*a, **kw)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o37.sc
+2025-04-14 17:22:41,010 - INFO - Closing down clientserver connection
+2025-04-14 17:22:41,011 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
+    self.cancelAllJobs()
+  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
+    return f(*a, **kw)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o37.sc
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-04-14 17:22:41,012 - INFO - Closing down clientserver connection
+2025-04-14 17:22:41,013 - ERROR - Error loading ratings data: An error occurred while calling o54.csv
+2025-04-14 17:22:41,616 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "C:\Users\efeba\BIL401Proje\src\data_loader.py", line 90, in load_ratings
+    .csv(ratings_file)
+  File "C:\spark\python\pyspark\sql\readwriter.py", line 740, in csv
+    return self._df(self._jreader.csv(self._spark._sc._jvm.PythonUtils.toSeq(path)))
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
+    return f(*a, **kw)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o54.csv
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+2025-04-14 17:22:41,619 - INFO - Closing down clientserver connection
+2025-04-14 17:22:41,619 - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "C:\Users\efeba\BIL401Proje\src\data_loader.py", line 90, in load_ratings
+    .csv(ratings_file)
+  File "C:\spark\python\pyspark\sql\readwriter.py", line 740, in csv
+    return self._df(self._jreader.csv(self._spark._sc._jvm.PythonUtils.toSeq(path)))
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
+    return f(*a, **kw)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o54.csv
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2025-04-14 17:22:41,622 - INFO - Closing down clientserver connection
+2025-04-14 17:22:43,660 - INFO - Closing down clientserver connection
+2025-04-14 17:22:45,710 - INFO - Closing down clientserver connection
+2025-04-14 17:22:45,710 - ERROR - Initialization error: An error occurred while calling o59.json
+2025-04-14 17:22:45,710 - INFO - Loading ratings data...
+2025-04-14 17:22:45,710 - INFO - Loading ratings from: C:\Users\efeba\BIL401Proje\archive\rating.csv
+2025-04-14 17:22:47,759 - INFO - Closing down clientserver connection
+2025-04-14 17:22:47,759 - ERROR - Error loading ratings data: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-04-14 17:22:49,786 - INFO - Closing down clientserver connection
+2025-04-14 17:22:49,786 - ERROR - Fatal error in fallback initialization: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-04-14 17:22:49,787 - INFO - Closing down clientserver connection
+2025-04-14 17:22:49,787 - INFO - Closing down clientserver connection
+2025-04-14 17:22:49,835 - INFO - Closing down clientserver connection
+2025-04-14 17:22:49,898 - INFO - Closing down clientserver connection
+2025-04-14 17:22:49,898 - INFO - Closing down clientserver connection

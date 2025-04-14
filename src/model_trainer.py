@@ -6,9 +6,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 class ModelTrainer:
-    def __init__(self):
+    def __init__(self, spark=None):
         """Model eğitici sınıfını başlatır"""
         self.logger = logging.getLogger(__name__)
+        self.spark = spark
         
         # ALS modelini yapılandır
         self.als = ALS(
@@ -93,6 +94,34 @@ class ModelTrainer:
         plt.savefig("residual_distribution.png")
         plt.close()
         
+    def save_model(self, model, path):
+        """
+        ALS modelini belirtilen yola kaydeder
+        """
+        try:
+            self.logger.info(f"Saving ALS model to {path}...")
+            model.save(path)
+            self.logger.info(f"Model successfully saved to {path}")
+            return True
+        except Exception as e:
+            self.logger.error(f"Error saving model: {str(e)}")
+            return False
+    
+    def load_model(self, path):
+        """
+        Belirtilen yoldan ALS modelini yükler
+        """
+        from pyspark.ml.recommendation import ALSModel
+        
+        try:
+            self.logger.info(f"Loading ALS model from {path}...")
+            model = ALSModel.load(path)
+            self.logger.info(f"Model successfully loaded from {path}")
+            return model
+        except Exception as e:
+            self.logger.error(f"Error loading model: {str(e)}")
+            return None
+    
     def get_top_recommendations(self, model, user_id, n=10):
         """Belirli bir kullanıcı için en iyi n film önerisini döndürür"""
         user_recs = model.recommendForUser(user_id, n)
