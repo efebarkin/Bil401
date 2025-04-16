@@ -12,12 +12,13 @@ Bu projede, iki farklı öneri algoritması kullanılmıştır:
 
 ## Proje Yapısı
 
-- `src/data_loader.py`: Veri yükleme ve ön işleme işlemlerini gerçekleştiren sınıf
-- `src/model_trainer.py`: ALS modelini eğiten ve değerlendiren sınıf
-- `src/content_based_recommender.py`: İçerik tabanlı filtreleme algoritmasını uygulayan sınıf
-- `src/graph_visualizer.py`: Graf görselleştirme işlemlerini gerçekleştiren sınıf
-- `src/app.py`: Flask web uygulaması
-- `src/templates/index.html`: Web arayüzü şablonu
+- `src/data_loader.py`: Spark ile veri yükleme ve temel ön işleme işlemlerini yapan sınıf.
+- `src/model_trainer.py`: ALS algoritmasını eğiten ve değerlendiren sınıf.
+- `src/content_based_recommender.py`: İçerik tabanlı filtreleme algoritmasını uygulayan sınıf.
+- `src/simple_app.py`: Ana Flask web uygulaması ve API endpointleri. (Kullanıcı arayüzü ve öneri servisleri burada.)
+- `src/templates/index.html`: Modern ve kullanıcı dostu web arayüzü şablonu.
+
+> Not: Tüm öneriler ve metrikler Flask arayüzünde görselleştirilir. Öneri kartlarında hem similarity (benzerlik) hem de varsa kullanıcının gerçek rating'i gösterilir.
 
 ## Gereksinimler
 
@@ -42,29 +43,41 @@ findspark==1.4.2
    pip install -r requirements.txt
    ```
 
-2. Veri setini indirin ve `c:/Users/efeba/Desktop/archive` dizinine çıkarın.
+2. Veri setini indirin ve `archive` klasörüne (proje ana dizininde olacak şekilde) çıkarın. Örnek yol: `BIL401Proje/archive/`
 
 ## Çalıştırma
 
 1. Proje dizininde aşağıdaki komutu çalıştırın:
    ```
-   python src/app.py
+   python src/simple_app.py
    ```
 
 2. Web tarayıcınızda `http://localhost:5000` adresine gidin.
 
 ## Özellikler
 
-- İki farklı öneri algoritmasının karşılaştırılması
+- ALS ve İçerik Tabanlı algoritmalar ile öneri
 - Kullanıcı bazlı film önerileri
-- Algoritma performans metrikleri
-- Kullanıcı puanlamalarının görüntülenmesi
-- Modern ve kullanıcı dostu arayüz
+- Her öneri için similarity (benzerlik) ve varsa rating (kullanıcının puanı) gösterimi
+- Algoritma performans metriklerinin (precision, recall, f1, coverage, diversity, novelty, RMSE, MAE) tablo halinde karşılaştırılması
+- Kullanıcı puanlamalarının ve öneri geçmişinin görüntülenmesi
+- Modern ve kullanıcı dostu Flask arayüzü
+- Spark tabanlı büyük veri desteği
 
-## Algoritma Karşılaştırması
+## Algoritma Karşılaştırması ve Metrikler
 
-Bu projede, ALS ve İçerik Tabanlı Filtreleme algoritmalarının performansları karşılaştırılmıştır:
+Proje arayüzünde, iki algoritmanın tüm önemli metrikleri tablo halinde karşılaştırmalı gösterilir:
 
-- **ALS**: RMSE ve MAE metrikleri ile değerlendirilmiştir.
-- **İçerik Tabanlı Filtreleme**: Precision, Recall ve F1 Score metrikleri ile değerlendirilmiştir.
-- **Jaccard Benzerliği**: İki algoritmanın önerilerinin benzerliği ölçülmüştür.
+- **ALS**: Precision, Recall, F1 Score, Coverage, Diversity, Novelty, RMSE, MAE
+- **İçerik Tabanlı**: Precision, Recall, F1 Score, Coverage, Diversity, Novelty, RMSE, MAE
+- **Jaccard Benzerliği**: ALS ve içerik tabanlı önerilerin ortak film oranı
+
+Her öneri kartında ayrıca:
+- Benzerlik oranı (similarity)
+- Kullanıcı daha önce puanladıysa gerçek rating
+ayrı ayrı gösterilir.
+
+### Notlar
+- Spark kurulumu ve Java gereksinimi için sisteminizde Java ve Spark yüklü olmalıdır.
+- Uygulama, büyük veri setleriyle çalışmaya uygundur. Küçük örnek veriyle de test edebilirsiniz.
+- Tüm ayarlar ve veri yolu, `src/simple_app.py` ve `src/data_loader.py` dosyalarında düzenlenebilir.
