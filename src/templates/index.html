@@ -272,17 +272,17 @@
                                     </div>
                                     <div class="card-body">
                                         <table class="table">
-                                            <tbody>
-                                                <tr>
-                                                    <th>RMSE</th>
-                                                    <td id="alsRmse">-</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>MAE</th>
-                                                    <td id="alsMae">-</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+    <tbody>
+        <tr><th>Precision</th><td id="alsPrecision">-</td></tr>
+        <tr><th>Recall</th><td id="alsRecall">-</td></tr>
+        <tr><th>F1 Score</th><td id="alsF1">-</td></tr>
+        <tr><th>Coverage</th><td id="alsCoverage">-</td></tr>
+        <tr><th>Diversity</th><td id="alsDiversity">-</td></tr>
+        <tr><th>Novelty</th><td id="alsNovelty">-</td></tr>
+        <tr><th>RMSE</th><td id="alsRmse">-</td></tr>
+        <tr><th>MAE</th><td id="alsMae">-</td></tr>
+    </tbody>
+</table>
                                     </div>
                                 </div>
                             </div>
@@ -293,21 +293,17 @@
                                     </div>
                                     <div class="card-body">
                                         <table class="table">
-                                            <tbody>
-                                                <tr>
-                                                    <th>Precision</th>
-                                                    <td id="contentPrecision">-</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Recall</th>
-                                                    <td id="contentRecall">-</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>F1 Score</th>
-                                                    <td id="contentF1">-</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+    <tbody>
+        <tr><th>Precision</th><td id="contentPrecision">-</td></tr>
+        <tr><th>Recall</th><td id="contentRecall">-</td></tr>
+        <tr><th>F1 Score</th><td id="contentF1">-</td></tr>
+        <tr><th>Coverage</th><td id="contentCoverage">-</td></tr>
+        <tr><th>Diversity</th><td id="contentDiversity">-</td></tr>
+        <tr><th>Novelty</th><td id="contentNovelty">-</td></tr>
+        <tr><th>RMSE</th><td id="contentRmse">-</td></tr>
+        <tr><th>MAE</th><td id="contentMae">-</td></tr>
+    </tbody>
+</table>
                                     </div>
                                 </div>
                             </div>
@@ -357,6 +353,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+// Güvenli toFixed fonksiyonu
+function safeToFixed(val, digits=3) {
+    if (val === undefined || val === null) return '-';
+    const num = Number(val);
+    return isNaN(num) ? '-' : num.toFixed(digits);
+}
+
         document.addEventListener('DOMContentLoaded', function() {
             // DOM elements
             const userSelect = document.getElementById('userSelect');
@@ -469,20 +472,26 @@
                 
                 let html = '';
                 recommendations.forEach((movie, index) => {
-                    const ratingClass = getRatingColorClass(movie.rating);
+                    // Null veya undefined değerleri kontrol et
+                    const rating = movie.rating !== undefined && movie.rating !== null ? movie.rating : 0;
+                    const ratingClass = getRatingColorClass(rating);
+                    const title = movie.title || 'Bilinmeyen Film';
+                    
                     html += `
-                        <div class="card mb-2 movie-card">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h5 class="card-title mb-1">${index + 1}. ${movie.title}</h5>
-                                    <div class="rating-star">
-                                        ${getStarRating(movie.rating)}
-                                    </div>
-                                </div>
-                                <span class="badge ${ratingClass} rating-badge">${movie.rating.toFixed(2)}</span>
-                            </div>
-                        </div>
-                    `;
+    <div class="card mb-2 movie-card">
+        <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="card-title mb-1">${index + 1}. ${title}</h5>
+                <div class="rating-star">
+                    ${getStarRating(rating)}
+                </div>
+                ${movie.similarity !== undefined ? `<span class='badge bg-info text-dark mt-2'>Benzerlik: ${safeToFixed(movie.similarity * 100, 2)}%</span>` : ''}
+            </div>
+            <span class="badge ${ratingClass} rating-badge">${safeToFixed(rating, 2)}</span>
+        </div>
+    </div>
+`;
+
                 });
                 
                 recommendationsContainer.innerHTML = html;
@@ -507,10 +516,13 @@
                     // Display Content-based recommendations
                     displayComparisonRecommendations('contentBasedRecommendations', data.contentBasedRecommendations);
                     
-                    // Update similarity score
-                    document.getElementById('similarityScore').innerHTML = `
-                        <span class="badge bg-primary p-2">Jaccard Benzerliği: ${(data.jaccardSimilarity * 100).toFixed(2)}%</span>
-                    `;
+                    // Update similarity score - null kontrolü ekle
+                    const jaccardSimilarity = data.jaccardSimilarity !== undefined && data.jaccardSimilarity !== null ? data.jaccardSimilarity : 0;
+                    const jaccardValue = Number(jaccardSimilarity) * 100;
+document.getElementById('similarityScore').innerHTML = `
+    <span class="badge bg-primary p-2">Jaccard Benzerliği: ${safeToFixed(jaccardValue, 2)}%</span>
+`;
+
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -538,13 +550,17 @@
                 
                 let html = '';
                 recommendations.forEach((movie, index) => {
-                    const ratingClass = getRatingColorClass(movie.rating);
+                    // Null veya undefined değerleri kontrol et
+                    const rating = movie.rating !== undefined && movie.rating !== null ? movie.rating : 0;
+                    const ratingClass = getRatingColorClass(rating);
+                    const title = movie.title || 'Bilinmeyen Film';
+                    
                     html += `
                         <div class="card mb-2 movie-card">
                             <div class="card-body py-2">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h6 class="card-title mb-0">${index + 1}. ${movie.title}</h6>
-                                    <span class="badge ${ratingClass}">${movie.rating.toFixed(2)}</span>
+                                    <h6 class="card-title mb-0">${index + 1}. ${title}</h6>
+                                    <span class="badge ${ratingClass}">${safeToFixed(rating, 2)}</span>
                                 </div>
                             </div>
                         </div>
@@ -615,7 +631,7 @@
                                         ${getStarRating(movie.rating)}
                                     </div>
                                 </div>
-                                <span class="badge ${ratingClass} rating-badge">${movie.rating.toFixed(1)}</span>
+                                <span class="badge ${ratingClass} rating-badge">${safeToFixed(movie.rating, 1)}</span>
                             </div>
                         </div>
                     `;
@@ -625,23 +641,55 @@
             }
             
             function evaluateAlgorithmsPerformance() {
-                fetch('/evaluate_algorithms')
-                .then(response => response.json())
-                .then(data => {
-                    // Update ALS metrics
-                    document.getElementById('alsRmse').textContent = data.als.rmse.toFixed(4);
-                    document.getElementById('alsMae').textContent = data.als.mae.toFixed(4);
-                    
-                    // Update Content-based metrics
-                    document.getElementById('contentPrecision').textContent = data.contentBased.precision.toFixed(4);
-                    document.getElementById('contentRecall').textContent = data.contentBased.recall.toFixed(4);
-                    document.getElementById('contentF1').textContent = data.contentBased.f1Score.toFixed(4);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Performans değerlendirmesi yapılırken bir hata oluştu: ' + error.message);
-                });
-            }
+    fetch('/evaluate_algorithms')
+    .then(response => response.json())
+    .then(data => {
+        // ALS metrikleri güvenli şekilde güncelle
+if (data.als) {
+    document.getElementById('alsPrecision').textContent = safeToFixed(data.als.precision, 4);
+    document.getElementById('alsRecall').textContent = safeToFixed(data.als.recall, 4);
+    document.getElementById('alsF1').textContent = safeToFixed(data.als.f1, 4);
+    document.getElementById('alsCoverage').textContent = safeToFixed(data.als.coverage, 4);
+    document.getElementById('alsDiversity').textContent = safeToFixed(data.als.diversity, 4);
+    document.getElementById('alsNovelty').textContent = safeToFixed(data.als.novelty, 4);
+    document.getElementById('alsRmse').textContent = safeToFixed(data.als.rmse, 4);
+    document.getElementById('alsMae').textContent = safeToFixed(data.als.mae, 4);
+} else {
+    document.getElementById('alsPrecision').textContent = '-';
+    document.getElementById('alsRecall').textContent = '-';
+    document.getElementById('alsF1').textContent = '-';
+    document.getElementById('alsCoverage').textContent = '-';
+    document.getElementById('alsDiversity').textContent = '-';
+    document.getElementById('alsNovelty').textContent = '-';
+    document.getElementById('alsRmse').textContent = '-';
+    document.getElementById('alsMae').textContent = '-';
+}
+// Content-based metrikleri güvenli şekilde güncelle
+if (data.contentBased) {
+    document.getElementById('contentPrecision').textContent = safeToFixed(data.contentBased.precision, 4);
+    document.getElementById('contentRecall').textContent = safeToFixed(data.contentBased.recall, 4);
+    document.getElementById('contentF1').textContent = safeToFixed(data.contentBased.f1, 4);
+    document.getElementById('contentCoverage').textContent = safeToFixed(data.contentBased.coverage, 4);
+    document.getElementById('contentDiversity').textContent = safeToFixed(data.contentBased.diversity, 4);
+    document.getElementById('contentNovelty').textContent = safeToFixed(data.contentBased.novelty, 4);
+    document.getElementById('contentRmse').textContent = safeToFixed(data.contentBased.rmse, 4);
+    document.getElementById('contentMae').textContent = safeToFixed(data.contentBased.mae, 4);
+} else {
+    document.getElementById('contentPrecision').textContent = '-';
+    document.getElementById('contentRecall').textContent = '-';
+    document.getElementById('contentF1').textContent = '-';
+    document.getElementById('contentCoverage').textContent = '-';
+    document.getElementById('contentDiversity').textContent = '-';
+    document.getElementById('contentNovelty').textContent = '-';
+    document.getElementById('contentRmse').textContent = '-';
+    document.getElementById('contentMae').textContent = '-';
+}
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Performans değerlendirmesi yapılırken bir hata oluştu: ' + error.message);
+    });
+}
             
             function getRatingColorClass(rating) {
                 if (rating >= 4.5) return 'bg-success';

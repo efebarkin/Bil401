@@ -1,14 +1,15 @@
 import os
 import logging
+import time
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, split, explode, count, avg, stddev, isnan, when, isnull, regexp_extract
+from pyspark.sql.functions import col, split, explode, count, avg, stddev, isnan, when, isnull, regexp_extract, min, max
 from pyspark.sql.types import DoubleType
 from pyspark.ml.feature import StringIndexer, VectorAssembler
 
 class DataLoader:
     def __init__(self, spark):
         self.spark = spark
-        # Veri yolunu projenin ana dizinindeki archive klasu00f6ru00fcne gu00fcncelle
+        # Veri yolunu projenin ana dizinindeki archive klasorune ayarla
         self.data_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "archive")
         self.setup_logging()
         self.logger.info(f"Data path set to: {self.data_path}")
@@ -82,6 +83,11 @@ class DataLoader:
                 raise FileNotFoundError(f"Ratings file not found at: {ratings_file}")
                 
             self.logger.info(f"Loading ratings from: {ratings_file}")
+            self.logger.info(f"File size: {os.path.getsize(ratings_file) / (1024*1024):.2f} MB")
+            
+            # CSV dosyasını okumaya başla
+            self.logger.info("Starting to read ratings CSV file...")
+            start_time = time.time()
             
             # CSV dosyasını oku - daha fazla seçenek ile
             ratings_df = self.spark.read.option("header", "true") \
@@ -89,26 +95,67 @@ class DataLoader:
                                      .option("mode", "DROPMALFORMED") \
                                      .csv(ratings_file)
             
+            # Okuma süresini logla
+            read_time = time.time() - start_time
+            self.logger.info(f"Ratings CSV file read in {read_time:.2f} seconds")
+            
+            # İlk birkaç satırı göster
+            self.logger.info("First 5 rows of ratings data:")
+            sample_rows = ratings_df.limit(5).toPandas().to_string()
+            self.logger.info("Sample data:")
+            self.logger.info(sample_rows)
+            
             # Veri doğrulama
+            self.logger.info("Validating ratings data...")
+            start_time = time.time()
             ratings_df = self.validate_dataframe(ratings_df, "ratings")
+            validate_time = time.time() - start_time
+            self.logger.info(f"Ratings data validated in {validate_time:.2f} seconds")
             
             # Eksik değerleri işle
+            self.logger.info("Handling missing values in ratings data...")
+            start_time = time.time()
             ratings_df = self.handle_missing_values(ratings_df)
+            missing_time = time.time() - start_time
+            self.logger.info(f"Missing values handled in {missing_time:.2f} seconds")
             
             # Rating kolonunu double'a çevir
+            self.logger.info("Converting rating column to double...")
             ratings_df = ratings_df.withColumn("rating", col("rating").cast(DoubleType()))
+            
+            # Timestamp'i işle
+            self.logger.info("Converting timestamp column...")
+            ratings_df = ratings_df.withColumn("timestamp", col("timestamp").cast("timestamp"))
+            
+            # Derecelendirme istatistiklerini hesapla
+            self.logger.info("Calculating rating statistics...")
+            rating_stats = ratings_df.select(
+                count("rating").alias("count"),
+                avg("rating").alias("mean"),
+                stddev("rating").alias("stddev"),
+                min("rating").alias("min"),
+                max("rating").alias("max")
+            ).collect()[0]
+            
+            self.logger.info(f"Rating statistics: count={rating_stats['count']}, mean={rating_stats['mean']:.2f}, stddev={rating_stats['stddev']:.2f}, min={rating_stats['min']}, max={rating_stats['max']}")
+            
+            # Derecelendirme dağılımını hesapla
+            rating_dist = ratings_df.groupBy("rating").count().orderBy("rating").collect()
+            dist_str = ", ".join([f"{row['rating']}: {row['count']}" for row in rating_dist])
+            self.logger.info(f"Rating distribution: {dist_str}")
+            
+            # Toplam işlem süresini logla
+            total_time = read_time + validate_time + missing_time
+            self.logger.info(f"Total ratings data processing time: {total_time:.2f} seconds")
             
             return ratings_df
         except Exception as e:
             self.logger.error(f"Error loading ratings data: {str(e)}")
+            import traceback
+            self.logger.error(traceback.format_exc())
             # Boş bir DataFrame döndür
             empty_schema = self.spark.createDataFrame([], "userId INT, movieId INT, rating DOUBLE, timestamp STRING")
             return empty_schema
-        
-        # Timestamp'i işle
-        ratings_df = ratings_df.withColumn("timestamp", col("timestamp").cast("timestamp"))
-            
-        return ratings_df
 
     def load_movies(self):
         """
@@ -304,7 +351,7 @@ class DataLoader:
         return genre_stats
 
     def create_feature_vector(self, df):
-        """Feature vektörü oluşturur"""
+        """Modellere doğrudan verilecek feature vektörü oluşturur"""
         # Sayısal kolonları seç
         numeric_cols = [item[0] for item in df.dtypes if item[1] in ['double', 'int']]
         

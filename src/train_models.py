@@ -114,7 +114,7 @@ def train_models():
             # Modeli kaydet
             model_trainer.save_model(als_model, ALS_MODEL_PATH)
             
-            logger.info(f"ALS model trained and saved successfully. RMSE: {rmse}, MAE: {mae}, R²: {r2}")
+            logger.info(f"ALS model trained and saved successfully. RMSE: {rmse:.4f}, MAE: {mae:.4f}, R²: {r2:.4f}")
         except Exception as e:
             logger.error(f"Error training ALS model: {str(e)}")
         

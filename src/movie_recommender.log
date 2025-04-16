@@ -1,861 +1,66 @@
-2025-02-18 11:16:04,196 - INFO - Loading and preprocessing data...
-2025-02-18 11:16:04,197 - INFO - Loading ratings data...
-2025-02-18 11:16:29,933 - INFO - 
+2025-04-15 02:39:13,799 - INFO - Data path set to: C:\Users\efeba\BIL401Proje\archive
+2025-04-15 02:39:13,837 - INFO - Loading data...
+2025-04-15 02:39:13,840 - INFO - Loading ratings data...
+2025-04-15 02:39:13,840 - INFO - Loading ratings from: C:\Users\efeba\BIL401Proje\archive\rating.csv
+2025-04-15 02:39:13,840 - INFO - File size: 658.37 MB
+2025-04-15 02:39:13,840 - INFO - Starting to read ratings CSV file...
+2025-04-15 02:39:43,264 - INFO - Ratings CSV file read in 29.42 seconds
+2025-04-15 02:39:43,265 - INFO - First 5 rows of ratings data:
+2025-04-15 02:39:43,481 - INFO - Sample data:
+2025-04-15 02:39:43,482 - INFO -    userId  movieId  rating           timestamp
+0       1        2     3.5 2005-04-02 23:53:47
+1       1       29     3.5 2005-04-02 23:31:16
+2       1       32     3.5 2005-04-02 23:33:39
+3       1       47     3.5 2005-04-02 23:32:07
+4       1       50     3.5 2005-04-02 23:29:40
+2025-04-15 02:39:43,482 - INFO - Validating ratings data...
+2025-04-15 02:39:43,482 - INFO - 
 Validating ratings DataFrame:
-2025-02-18 11:16:33,466 - INFO - Shape: 20000263 rows, 4 columns
-2025-02-18 11:18:44,036 - INFO - Loading movies data...
-2025-02-18 11:18:44,694 - INFO - 
+2025-04-15 02:39:48,235 - INFO - Shape: 20000263 rows, 4 columns
+2025-04-15 02:41:41,957 - INFO - Ratings data validated in 118.48 seconds
+2025-04-15 02:41:41,957 - INFO - Handling missing values in ratings data...
+2025-04-15 02:42:24,154 - INFO - Missing values handled in 42.20 seconds
+2025-04-15 02:42:24,154 - INFO - Converting rating column to double...
+2025-04-15 02:42:24,175 - INFO - Converting timestamp column...
+2025-04-15 02:42:24,193 - INFO - Calculating rating statistics...
+2025-04-15 02:42:38,448 - INFO - Rating statistics: count=20000263, mean=3.53, stddev=1.05, min=0.5, max=5.0
+2025-04-15 02:42:53,549 - INFO - Rating distribution: 0.5: 239125, 1.0: 680732, 1.5: 279252, 2.0: 1430997, 2.5: 883398, 3.0: 4291193, 3.5: 2200156, 4.0: 5561926, 4.5: 1534824, 5.0: 2898660
+2025-04-15 02:42:53,549 - INFO - Total ratings data processing time: 190.09 seconds
+2025-04-15 02:42:53,595 - INFO - Loading movies data...
+2025-04-15 02:42:53,595 - INFO - Loading movies from: C:\Users\efeba\BIL401Proje\archive\movie.csv
+2025-04-15 02:42:53,787 - INFO - 
 Validating movies DataFrame:
-2025-02-18 11:18:44,860 - INFO - Shape: 27278 rows, 3 columns
-2025-02-18 11:18:48,122 - INFO - Loading tags data...
-2025-02-18 11:18:49,034 - INFO - 
+2025-04-15 02:42:53,855 - INFO - Shape: 27278 rows, 3 columns
+2025-04-15 02:42:54,837 - INFO - Loading tags data...
+2025-04-15 02:42:55,536 - INFO - 
 Validating tags DataFrame:
-2025-02-18 11:18:49,325 - INFO - Shape: 465564 rows, 4 columns
-2025-02-18 11:18:51,231 - WARNING - Column timestamp has 3 null values
-2025-02-18 11:18:54,979 - INFO - Loading genome scores data...
-2025-02-18 11:19:03,901 - INFO - 
+2025-04-15 02:42:55,713 - INFO - Shape: 465564 rows, 4 columns
+2025-04-15 02:42:57,514 - WARNING - Column timestamp has 3 null values
+2025-04-15 02:43:00,367 - INFO - Loading genome scores data...
+2025-04-15 02:43:12,507 - INFO - 
 Validating genome scores DataFrame:
-2025-02-18 11:19:05,755 - INFO - Shape: 11709768 rows, 3 columns
-2025-02-18 11:20:00,748 - INFO - Loading genome tags data...
-2025-02-18 11:20:01,065 - INFO - 
+2025-04-15 02:43:15,217 - INFO - Shape: 11709768 rows, 3 columns
+2025-04-15 02:44:36,161 - INFO - Loading genome tags data...
+2025-04-15 02:44:36,272 - INFO - 
 Validating genome tags DataFrame:
-2025-02-18 11:20:01,195 - INFO - Shape: 1128 rows, 2 columns
-2025-02-18 11:20:02,712 - INFO - 
-Dataset sizes:
-2025-02-18 11:20:06,925 - INFO - Ratings: 20,000,263 rows
-2025-02-18 11:20:07,121 - INFO - Movies: 27,278 rows
-2025-02-18 11:20:07,437 - INFO - Tags: 465,564 rows
-2025-02-18 11:20:09,240 - INFO - Genome Scores: 11,709,768 rows
-2025-02-18 11:20:09,346 - INFO - Genome Tags: 1,128 rows
-2025-02-18 11:20:09,348 - INFO - Analyzing data...
-2025-02-18 11:20:09,488 - INFO - 
-Movie rating statistics:
-2025-02-18 11:20:22,124 - INFO - 
-Top rated movies:
-2025-02-18 11:20:22,125 - ERROR - An error occurred: 'DataLoader' object has no attribute 'get_top_rated_movies'
-Traceback (most recent call last):
-  File "C:\Users\efeba\BIL401Proje\src\main.py", line 126, in main
-    analyze_data(data_loader, ratings_df, movies_df)
-  File "C:\Users\efeba\BIL401Proje\src\main.py", line 69, in analyze_data
-    top_movies = data_loader.get_top_rated_movies(ratings_df, movies_df)
-AttributeError: 'DataLoader' object has no attribute 'get_top_rated_movies'
-2025-02-18 11:23:02,850 - INFO - Loading and preprocessing data...
-2025-02-18 11:23:02,851 - INFO - Loading ratings data...
-2025-02-18 11:23:28,770 - INFO - 
-Validating ratings DataFrame:
-2025-02-18 11:23:32,206 - INFO - Shape: 20000263 rows, 4 columns
-2025-02-18 11:25:43,298 - INFO - Loading movies data...
-2025-02-18 11:25:43,824 - INFO - 
-Validating movies DataFrame:
-2025-02-18 11:25:43,979 - INFO - Shape: 27278 rows, 3 columns
-2025-02-18 11:25:46,670 - INFO - Loading tags data...
-2025-02-18 11:25:47,480 - INFO - 
-Validating tags DataFrame:
-2025-02-18 11:25:47,741 - INFO - Shape: 465564 rows, 4 columns
-2025-02-18 11:25:49,600 - WARNING - Column timestamp has 3 null values
-2025-02-18 11:25:53,371 - INFO - Loading genome scores data...
-2025-02-18 11:26:02,678 - INFO - 
-Validating genome scores DataFrame:
-2025-02-18 11:26:04,408 - INFO - Shape: 11709768 rows, 3 columns
-2025-02-18 11:26:59,316 - INFO - Loading genome tags data...
-2025-02-18 11:26:59,688 - INFO - 
-Validating genome tags DataFrame:
-2025-02-18 11:26:59,806 - INFO - Shape: 1128 rows, 2 columns
-2025-02-18 11:27:01,273 - INFO - 
-Dataset sizes:
-2025-02-18 11:27:05,346 - INFO - Ratings: 20,000,263 rows
-2025-02-18 11:27:05,559 - INFO - Movies: 27,278 rows
-2025-02-18 11:27:05,794 - INFO - Tags: 465,564 rows
-2025-02-18 11:27:07,554 - INFO - Genome Scores: 11,709,768 rows
-2025-02-18 11:27:07,750 - INFO - Genome Tags: 1,128 rows
-2025-02-18 11:27:07,751 - INFO - Analyzing data...
-2025-02-18 11:27:07,850 - INFO - 
-Movie rating statistics:
-2025-02-18 11:27:20,791 - INFO - 
-Top rated movies:
-2025-02-18 11:27:34,500 - INFO - 
-Genre statistics:
-2025-02-18 11:27:47,865 - INFO - 
-User rating statistics:
-2025-02-18 11:28:00,284 - INFO - Training and evaluating model...
-2025-02-18 11:28:00,285 - INFO - Starting model training with cross validation...
-2025-02-18 11:28:00,346 - INFO - Training model...
-2025-02-18 11:37:21,103 - ERROR - An error occurred: An error occurred while calling o1165.fit.
-: org.apache.spark.SparkException: Job aborted due to stage failure: Task 6 in stage 502.0 failed 1 times, most recent failure: Lost task 6.0 in stage 502.0 (TID 1321) (kubernetes.docker.internal executor driver): java.io.FileNotFoundException: C:\Users\efeba\AppData\Local\Temp\blockmgr-2c839259-b8fd-4cc0-9808-3ef7b262a550\01\temp_shuffle_228499a4-f559-4b67-aa2d-c40cc8ac84ee (Sistem belirtilen yolu bulamýyor)
-	at java.io.FileOutputStream.open0(Native Method)
-	at java.io.FileOutputStream.open(Unknown Source)
-	at java.io.FileOutputStream.<init>(Unknown Source)
-	at org.apache.spark.storage.DiskBlockObjectWriter.initialize(DiskBlockObjectWriter.scala:147)
-	at org.apache.spark.storage.DiskBlockObjectWriter.open(DiskBlockObjectWriter.scala:167)
-	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:330)
-	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:171)
-	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
-	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
-	at org.apache.spark.scheduler.Task.run(Task.scala:141)
-	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
-	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
-	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-
-Driver stacktrace:
-	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
-	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
-	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
-	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
-	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
-	at scala.Option.foreach(Option.scala:407)
-	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
-	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
-	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2393)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2414)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2433)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2458)
-	at org.apache.spark.rdd.RDD.count(RDD.scala:1296)
-	at org.apache.spark.ml.recommendation.ALS$.train(ALS.scala:1090)
-	at org.apache.spark.ml.recommendation.ALS.$anonfun$fit$1(ALS.scala:737)
-	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
-	at scala.util.Try$.apply(Try.scala:213)
-	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
-	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:714)
-	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:616)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
-	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
-	at py4j.Gateway.invoke(Gateway.java:282)
-	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
-	at py4j.commands.CallCommand.execute(CallCommand.java:79)
-	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
-	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.io.FileNotFoundException: C:\Users\efeba\AppData\Local\Temp\blockmgr-2c839259-b8fd-4cc0-9808-3ef7b262a550\01\temp_shuffle_228499a4-f559-4b67-aa2d-c40cc8ac84ee (Sistem belirtilen yolu bulamýyor)
-	at java.io.FileOutputStream.open0(Native Method)
-	at java.io.FileOutputStream.open(Unknown Source)
-	at java.io.FileOutputStream.<init>(Unknown Source)
-	at org.apache.spark.storage.DiskBlockObjectWriter.initialize(DiskBlockObjectWriter.scala:147)
-	at org.apache.spark.storage.DiskBlockObjectWriter.open(DiskBlockObjectWriter.scala:167)
-	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:330)
-	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:171)
-	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
-	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
-	at org.apache.spark.scheduler.Task.run(Task.scala:141)
-	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
-	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
-	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	... 1 more
-Traceback (most recent call last):
-  File "C:\Users\efeba\BIL401Proje\src\main.py", line 129, in main
-    best_model = train_and_evaluate_model(model_trainer, ratings_df)
-  File "C:\Users\efeba\BIL401Proje\src\main.py", line 90, in train_and_evaluate_model
-    best_model, predictions, rmse, mae = model_trainer.train_with_cross_validation(ratings_df)
-  File "C:\Users\efeba\BIL401Proje\src\model_trainer.py", line 58, in train_with_cross_validation
-    cv_model = cv.fit(training)
-  File "C:\spark\python\pyspark\ml\base.py", line 205, in fit
-    return self._fit(dataset)
-  File "C:\spark\python\pyspark\ml\tuning.py", line 847, in _fit
-    for j, metric, subModel in pool.imap_unordered(lambda f: f(), tasks):
-  File "C:\Program Files\Python310\lib\multiprocessing\pool.py", line 873, in next
-    raise value
-  File "C:\Program Files\Python310\lib\multiprocessing\pool.py", line 125, in worker
-    result = (True, func(*args, **kwds))
-  File "C:\spark\python\pyspark\ml\tuning.py", line 847, in <lambda>
-    for j, metric, subModel in pool.imap_unordered(lambda f: f(), tasks):
-  File "C:\spark\python\pyspark\util.py", line 342, in wrapped
-    return f(*args, **kwargs)
-  File "C:\spark\python\pyspark\ml\tuning.py", line 113, in singleTask
-    index, model = next(modelIter)
-  File "C:\spark\python\pyspark\ml\base.py", line 98, in __next__
-    return index, self.fitSingleModel(index)
-  File "C:\spark\python\pyspark\ml\base.py", line 156, in fitSingleModel
-    return estimator.fit(dataset, paramMaps[index])
-  File "C:\spark\python\pyspark\ml\base.py", line 203, in fit
-    return self.copy(params)._fit(dataset)
-  File "C:\spark\python\pyspark\ml\wrapper.py", line 381, in _fit
-    java_model = self._fit_java(dataset)
-  File "C:\spark\python\pyspark\ml\wrapper.py", line 378, in _fit_java
-    return self._java_obj.fit(dataset._jdf)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
-    return f(*a, **kw)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 326, in get_return_value
-    raise Py4JJavaError(
-py4j.protocol.Py4JJavaError: An error occurred while calling o1165.fit.
-: org.apache.spark.SparkException: Job aborted due to stage failure: Task 6 in stage 502.0 failed 1 times, most recent failure: Lost task 6.0 in stage 502.0 (TID 1321) (kubernetes.docker.internal executor driver): java.io.FileNotFoundException: C:\Users\efeba\AppData\Local\Temp\blockmgr-2c839259-b8fd-4cc0-9808-3ef7b262a550\01\temp_shuffle_228499a4-f559-4b67-aa2d-c40cc8ac84ee (Sistem belirtilen yolu bulamýyor)
-	at java.io.FileOutputStream.open0(Native Method)
-	at java.io.FileOutputStream.open(Unknown Source)
-	at java.io.FileOutputStream.<init>(Unknown Source)
-	at org.apache.spark.storage.DiskBlockObjectWriter.initialize(DiskBlockObjectWriter.scala:147)
-	at org.apache.spark.storage.DiskBlockObjectWriter.open(DiskBlockObjectWriter.scala:167)
-	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:330)
-	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:171)
-	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
-	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
-	at org.apache.spark.scheduler.Task.run(Task.scala:141)
-	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
-	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
-	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-
-Driver stacktrace:
-	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
-	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
-	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
-	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
-	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
-	at scala.Option.foreach(Option.scala:407)
-	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
-	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
-	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2393)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2414)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2433)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2458)
-	at org.apache.spark.rdd.RDD.count(RDD.scala:1296)
-	at org.apache.spark.ml.recommendation.ALS$.train(ALS.scala:1090)
-	at org.apache.spark.ml.recommendation.ALS.$anonfun$fit$1(ALS.scala:737)
-	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
-	at scala.util.Try$.apply(Try.scala:213)
-	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
-	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:714)
-	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:616)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
-	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
-	at py4j.Gateway.invoke(Gateway.java:282)
-	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
-	at py4j.commands.CallCommand.execute(CallCommand.java:79)
-	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
-	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.io.FileNotFoundException: C:\Users\efeba\AppData\Local\Temp\blockmgr-2c839259-b8fd-4cc0-9808-3ef7b262a550\01\temp_shuffle_228499a4-f559-4b67-aa2d-c40cc8ac84ee (Sistem belirtilen yolu bulamýyor)
-	at java.io.FileOutputStream.open0(Native Method)
-	at java.io.FileOutputStream.open(Unknown Source)
-	at java.io.FileOutputStream.<init>(Unknown Source)
-	at org.apache.spark.storage.DiskBlockObjectWriter.initialize(DiskBlockObjectWriter.scala:147)
-	at org.apache.spark.storage.DiskBlockObjectWriter.open(DiskBlockObjectWriter.scala:167)
-	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:330)
-	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:171)
-	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
-	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
-	at org.apache.spark.scheduler.Task.run(Task.scala:141)
-	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
-	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
-	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	... 1 more
-
-2025-02-18 11:42:41,400 - ERROR - KeyboardInterrupt while sending command.
-Traceback (most recent call last):
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-KeyboardInterrupt
-2025-03-19 22:37:42,421 - INFO - Loading data...
-2025-03-19 22:37:42,422 - INFO - Loading ratings data...
-2025-03-19 22:38:14,235 - INFO - 
-Validating ratings DataFrame:
-2025-03-19 22:38:19,611 - INFO - Shape: 20000263 rows, 4 columns
-2025-03-19 22:40:35,731 - INFO - Loading movies data...
-2025-03-19 22:40:36,296 - INFO - 
-Validating movies DataFrame:
-2025-03-19 22:40:36,461 - INFO - Shape: 27278 rows, 3 columns
-2025-03-19 22:40:38,561 - INFO - Loading tags data...
-2025-03-19 22:40:39,443 - INFO - 
-Validating tags DataFrame:
-2025-03-19 22:40:39,732 - INFO - Shape: 465564 rows, 4 columns
-2025-03-19 22:40:41,937 - WARNING - Column timestamp has 3 null values
-2025-03-19 22:40:45,816 - INFO - Loading genome scores data...
-2025-03-19 22:40:54,570 - INFO - 
-Validating genome scores DataFrame:
-2025-03-19 22:40:56,608 - INFO - Shape: 11709768 rows, 3 columns
-2025-03-19 22:41:52,623 - INFO - Loading genome tags data...
-2025-03-19 22:41:52,881 - INFO - 
-Validating genome tags DataFrame:
-2025-03-19 22:41:53,031 - INFO - Shape: 1128 rows, 2 columns
-2025-03-19 22:42:07,287 - INFO - Training ALS model...
-2025-03-19 22:42:07,356 - INFO - Training model with cross validation...
-2025-03-19 23:06:35,541 - ERROR - Error during model training: An error occurred while calling o1889.fit.
-: org.apache.spark.SparkException: Job aborted due to stage failure: Task 5 in stage 880.0 failed 1 times, most recent failure: Lost task 5.0 in stage 880.0 (TID 1959) (kubernetes.docker.internal executor driver): org.apache.spark.SparkException: [FAILED_RENAME_TEMP_FILE] Failed to rename temp file C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data.f8293e3d-00e4-47a5-99fa-41162a34b129 to C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data as FileSystem.rename returned false.
-	at org.apache.spark.errors.SparkCoreErrors$.failedRenameTempFileError(SparkCoreErrors.scala:476)
-	at org.apache.spark.shuffle.IndexShuffleBlockResolver.writeMetadataFileAndCommit(IndexShuffleBlockResolver.scala:414)
-	at org.apache.spark.shuffle.sort.io.LocalDiskShuffleMapOutputWriter.commitAllPartitions(LocalDiskShuffleMapOutputWriter.java:118)
-	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.writePartitionedData(BypassMergeSortShuffleWriter.java:235)
-	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:180)
-	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
-	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
-	at org.apache.spark.scheduler.Task.run(Task.scala:141)
-	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
-	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
-	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-
-Driver stacktrace:
-	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
-	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
-	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
-	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
-	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
-	at scala.Option.foreach(Option.scala:407)
-	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
-	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
-	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2393)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2414)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2433)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2458)
-	at org.apache.spark.rdd.RDD.count(RDD.scala:1296)
-	at org.apache.spark.ml.recommendation.ALS$.train(ALS.scala:1090)
-	at org.apache.spark.ml.recommendation.ALS.$anonfun$fit$1(ALS.scala:737)
-	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
-	at scala.util.Try$.apply(Try.scala:213)
-	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
-	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:714)
-	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:616)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
-	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
-	at py4j.Gateway.invoke(Gateway.java:282)
-	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
-	at py4j.commands.CallCommand.execute(CallCommand.java:79)
-	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
-	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: org.apache.spark.SparkException: [FAILED_RENAME_TEMP_FILE] Failed to rename temp file C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data.f8293e3d-00e4-47a5-99fa-41162a34b129 to C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data as FileSystem.rename returned false.
-	at org.apache.spark.errors.SparkCoreErrors$.failedRenameTempFileError(SparkCoreErrors.scala:476)
-	at org.apache.spark.shuffle.IndexShuffleBlockResolver.writeMetadataFileAndCommit(IndexShuffleBlockResolver.scala:414)
-	at org.apache.spark.shuffle.sort.io.LocalDiskShuffleMapOutputWriter.commitAllPartitions(LocalDiskShuffleMapOutputWriter.java:118)
-	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.writePartitionedData(BypassMergeSortShuffleWriter.java:235)
-	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:180)
-	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
-	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
-	at org.apache.spark.scheduler.Task.run(Task.scala:141)
-	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
-	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
-	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	... 1 more
-
-2025-03-19 23:06:35,606 - ERROR - Initialization error: An error occurred while calling o1889.fit.
-: org.apache.spark.SparkException: Job aborted due to stage failure: Task 5 in stage 880.0 failed 1 times, most recent failure: Lost task 5.0 in stage 880.0 (TID 1959) (kubernetes.docker.internal executor driver): org.apache.spark.SparkException: [FAILED_RENAME_TEMP_FILE] Failed to rename temp file C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data.f8293e3d-00e4-47a5-99fa-41162a34b129 to C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data as FileSystem.rename returned false.
-	at org.apache.spark.errors.SparkCoreErrors$.failedRenameTempFileError(SparkCoreErrors.scala:476)
-	at org.apache.spark.shuffle.IndexShuffleBlockResolver.writeMetadataFileAndCommit(IndexShuffleBlockResolver.scala:414)
-	at org.apache.spark.shuffle.sort.io.LocalDiskShuffleMapOutputWriter.commitAllPartitions(LocalDiskShuffleMapOutputWriter.java:118)
-	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.writePartitionedData(BypassMergeSortShuffleWriter.java:235)
-	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:180)
-	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
-	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
-	at org.apache.spark.scheduler.Task.run(Task.scala:141)
-	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
-	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
-	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-
-Driver stacktrace:
-	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
-	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
-	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
-	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
-	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
-	at scala.Option.foreach(Option.scala:407)
-	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
-	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
-	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2393)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2414)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2433)
-	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2458)
-	at org.apache.spark.rdd.RDD.count(RDD.scala:1296)
-	at org.apache.spark.ml.recommendation.ALS$.train(ALS.scala:1090)
-	at org.apache.spark.ml.recommendation.ALS.$anonfun$fit$1(ALS.scala:737)
-	at org.apache.spark.ml.util.Instrumentation$.$anonfun$instrumented$1(Instrumentation.scala:191)
-	at scala.util.Try$.apply(Try.scala:213)
-	at org.apache.spark.ml.util.Instrumentation$.instrumented(Instrumentation.scala:191)
-	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:714)
-	at org.apache.spark.ml.recommendation.ALS.fit(ALS.scala:616)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
-	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
-	at py4j.Gateway.invoke(Gateway.java:282)
-	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
-	at py4j.commands.CallCommand.execute(CallCommand.java:79)
-	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
-	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: org.apache.spark.SparkException: [FAILED_RENAME_TEMP_FILE] Failed to rename temp file C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data.f8293e3d-00e4-47a5-99fa-41162a34b129 to C:\Users\efeba\BIL401Proje\src\spark_temp\blockmgr-be6d0241-fa8b-44a0-a1c6-5570dd2919f2\2d\shuffle_205_1959_0.data as FileSystem.rename returned false.
-	at org.apache.spark.errors.SparkCoreErrors$.failedRenameTempFileError(SparkCoreErrors.scala:476)
-	at org.apache.spark.shuffle.IndexShuffleBlockResolver.writeMetadataFileAndCommit(IndexShuffleBlockResolver.scala:414)
-	at org.apache.spark.shuffle.sort.io.LocalDiskShuffleMapOutputWriter.commitAllPartitions(LocalDiskShuffleMapOutputWriter.java:118)
-	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.writePartitionedData(BypassMergeSortShuffleWriter.java:235)
-	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:180)
-	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
-	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
-	at org.apache.spark.scheduler.Task.run(Task.scala:141)
-	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
-	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
-	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	... 1 more
-
-2025-03-19 23:06:36,921 - INFO - Closing down clientserver connection
-2025-03-19 23:06:36,988 - INFO - Closing down clientserver connection
-2025-03-19 23:13:09,556 - INFO - Loading data...
-2025-03-19 23:13:09,557 - INFO - Loading ratings data...
-2025-03-19 23:13:44,801 - INFO - 
-Validating ratings DataFrame:
-2025-03-19 23:13:52,410 - INFO - Shape: 20000263 rows, 4 columns
-2025-03-19 23:14:04,009 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-RuntimeError: reentrant call inside <_io.BufferedReader name=3632>
-2025-03-19 23:14:04,017 - INFO - Closing down clientserver connection
-2025-03-19 23:14:04,018 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-RuntimeError: reentrant call inside <_io.BufferedReader name=3632>
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-03-19 23:14:04,026 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
-    return f(*a, **kw)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o33.sc
-2025-03-19 23:14:04,089 - INFO - Closing down clientserver connection
-2025-03-19 23:14:04,089 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
-    return f(*a, **kw)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o33.sc
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-03-19 23:14:04,091 - INFO - Closing down clientserver connection
-2025-03-19 23:14:04,092 - ERROR - Initialization error: An error occurred while calling o56.count
-2025-03-19 23:14:04,143 - INFO - Closing down clientserver connection
-2025-04-14 15:43:36,565 - INFO - Loading data...
-2025-04-14 15:43:36,566 - INFO - Loading ratings data...
-2025-04-14 15:43:55,673 - INFO - 
-Validating ratings DataFrame:
-2025-04-14 15:43:59,995 - INFO - Shape: 20000263 rows, 4 columns
-2025-04-14 15:45:05,190 - INFO - Loading movies data...
-2025-04-14 15:45:05,449 - INFO - 
-Validating movies DataFrame:
-2025-04-14 15:45:05,538 - INFO - Shape: 27278 rows, 3 columns
-2025-04-14 15:45:06,652 - INFO - Loading tags data...
-2025-04-14 15:45:07,049 - INFO - 
-Validating tags DataFrame:
-2025-04-14 15:45:07,174 - INFO - Shape: 465564 rows, 4 columns
-2025-04-14 15:45:08,100 - WARNING - Column timestamp has 3 null values
-2025-04-14 15:45:09,528 - INFO - Loading genome scores data...
-2025-04-14 15:45:14,264 - INFO - 
-Validating genome scores DataFrame:
-2025-04-14 15:45:15,303 - INFO - Shape: 11709768 rows, 3 columns
-2025-04-14 15:45:50,194 - INFO - Loading genome tags data...
-2025-04-14 15:45:50,339 - INFO - 
-Validating genome tags DataFrame:
-2025-04-14 15:45:50,398 - INFO - Shape: 1128 rows, 2 columns
-2025-04-14 15:46:04,424 - INFO - Training ALS model...
-2025-04-14 15:46:04,579 - INFO - Training model with cross validation...
-2025-04-14 15:46:14,559 - ERROR - Error during model training: An error occurred while calling o468.fit.
-: org.apache.spark.SparkException: Job aborted due to stage failure: Task 1 in stage 152.0 failed 1 times, most recent failure: Lost task 1.0 in stage 152.0 (TID 376) (kubernetes.docker.internal executor driver): org.apache.spark.memory.SparkOutOfMemoryError: error while calling spill() on org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter@40e2e6a5 : C:\Users\efeba\AppData\Local\Temp\spark_temp\blockmgr-9499b49d-c435-4f4b-8531-6123840fee13\3b\temp_local_d0eff8bd-3b1b-4f1a-b03e-ada1ecdda421 (Sistem belirtilen yolu bulamýyor)
-	at org.apache.spark.memory.TaskMemoryManager.trySpillAndAcquire(TaskMemoryManager.java:254)
-	at org.apache.spark.memory.TaskMemoryManager.acquireExecutionMemory(TaskMemoryManager.java:191)
-	at org.apache.spark.memory.TaskMemoryManager.allocatePage(TaskMemoryManager.java:318)
-	at org.apache.spark.memory.MemoryConsumer.allocateArray(MemoryConsumer.java:96)
-	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.growPointerArrayIfNecessary(UnsafeExternalSorter.java:393)
-	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.allocateMemoryForRecordIfNecessary(UnsafeExternalSorter.java:449)
-	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.insertRecord(UnsafeExternalSorter.java:487)
-	at org.apache.spark.sql.execution.UnsafeExternalRowSorter.insertRow(UnsafeExternalRowSorter.java:138)
-	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.sort_addToSorter_0$(Unknown Source)
-	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
-	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
-	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
-	at org.apache.spark.sql.execution.columnar.DefaultCachedBatchSerializer$$anon$1.hasNext(InMemoryRelation.scala:119)
-	at org.apache.spark.sql.execution.columnar.CachedRDDBuilder$$anon$2.hasNext(InMemoryRelation.scala:288)
-	at org.apache.spark.storage.memory.MemoryStore.putIterator(MemoryStore.scala:223)
-	at org.apache.spark.storage.memory.MemoryStore.putIteratorAsValues(MemoryStore.scala:302)
-	at org.apache.spark.storage.BlockManager.$anonfun$doPutIterator$1(BlockManager.scala:1597)
-	at org.apache.spark.storage.BlockManager.org$apache$spark$storage$BlockManager$$doPut(BlockManager.scala:1524)
-	at org.apache.spark.storage.BlockManager.doPutIterator(BlockManager.scala:1588)
-	at org.apache.spark.storage.BlockManager.getOrElseUpdate(BlockManager.scala:1389)
-	at org.apache.spark.storage.BlockManager.getOrElseUpdateRDDBlock(BlockManager.scala:1343)
-	at org.apache.spark.rdd.RDD.getOrCompute(RDD.scala:379)
-	at org.apache.spark.rdd.RDD.iterator(RDD.scala:329)
-	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
-	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
-	at org.apache.spark.scheduler.Task.run(Task.scala:141)
-	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
-	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
-	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-
-Driver stacktrace:
-	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
-	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
-	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
-	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
-	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
-	at scala.Option.foreach(Option.scala:407)
-	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
-	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
-Caused by: org.apache.spark.memory.SparkOutOfMemoryError: error while calling spill() on org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter@40e2e6a5 : C:\Users\efeba\AppData\Local\Temp\spark_temp\blockmgr-9499b49d-c435-4f4b-8531-6123840fee13\3b\temp_local_d0eff8bd-3b1b-4f1a-b03e-ada1ecdda421 (Sistem belirtilen yolu bulamýyor)
-	at org.apache.spark.memory.TaskMemoryManager.trySpillAndAcquire(TaskMemoryManager.java:254)
-	at org.apache.spark.memory.TaskMemoryManager.acquireExecutionMemory(TaskMemoryManager.java:191)
-	at org.apache.spark.memory.TaskMemoryManager.allocatePage(TaskMemoryManager.java:318)
-	at org.apache.spark.memory.MemoryConsumer.allocateArray(MemoryConsumer.java:96)
-	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.growPointerArrayIfNecessary(UnsafeExternalSorter.java:393)
-	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.allocateMemoryForRecordIfNecessary(UnsafeExternalSorter.java:449)
-	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.insertRecord(UnsafeExternalSorter.java:487)
-	at org.apache.spark.sql.execution.UnsafeExternalRowSorter.insertRow(UnsafeExternalRowSorter.java:138)
-	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.sort_addToSorter_0$(Unknown Source)
-	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
-	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
-	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
-	at org.apache.spark.sql.execution.columnar.DefaultCachedBatchSerializer$$anon$1.hasNext(InMemoryRelation.scala:119)
-	at org.apache.spark.sql.execution.columnar.CachedRDDBuilder$$anon$2.hasNext(InMemoryRelation.scala:288)
-	at org.apache.spark.storage.memory.MemoryStore.putIterator(MemoryStore.scala:223)
-	at org.apache.spark.storage.memory.MemoryStore.putIteratorAsValues(MemoryStore.scala:302)
-	at org.apache.spark.storage.BlockManager.$anonfun$doPutIterator$1(BlockManager.scala:1597)
-	at org.apache.spark.storage.BlockManager.org$apache$spark$storage$BlockManager$$doPut(BlockManager.scala:1524)
-	at org.apache.spark.storage.BlockManager.doPutIterator(BlockManager.scala:1588)
-	at org.apache.spark.storage.BlockManager.getOrElseUpdate(BlockManager.scala:1389)
-	at org.apache.spark.storage.BlockManager.getOrElseUpdateRDDBlock(BlockManager.scala:1343)
-	at org.apache.spark.rdd.RDD.getOrCompute(RDD.scala:379)
-	at org.apache.spark.rdd.RDD.iterator(RDD.scala:329)
-	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
-	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
-	at org.apache.spark.scheduler.Task.run(Task.scala:141)
-	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
-	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
-	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-
-2025-04-14 15:46:14,569 - ERROR - Error training ALS model: An error occurred while calling o468.fit.
-: org.apache.spark.SparkException: Job aborted due to stage failure: Task 1 in stage 152.0 failed 1 times, most recent failure: Lost task 1.0 in stage 152.0 (TID 376) (kubernetes.docker.internal executor driver): org.apache.spark.memory.SparkOutOfMemoryError: error while calling spill() on org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter@40e2e6a5 : C:\Users\efeba\AppData\Local\Temp\spark_temp\blockmgr-9499b49d-c435-4f4b-8531-6123840fee13\3b\temp_local_d0eff8bd-3b1b-4f1a-b03e-ada1ecdda421 (Sistem belirtilen yolu bulamýyor)
-	at org.apache.spark.memory.TaskMemoryManager.trySpillAndAcquire(TaskMemoryManager.java:254)
-	at org.apache.spark.memory.TaskMemoryManager.acquireExecutionMemory(TaskMemoryManager.java:191)
-	at org.apache.spark.memory.TaskMemoryManager.allocatePage(TaskMemoryManager.java:318)
-	at org.apache.spark.memory.MemoryConsumer.allocateArray(MemoryConsumer.java:96)
-	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.growPointerArrayIfNecessary(UnsafeExternalSorter.java:393)
-	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.allocateMemoryForRecordIfNecessary(UnsafeExternalSorter.java:449)
-	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.insertRecord(UnsafeExternalSorter.java:487)
-	at org.apache.spark.sql.execution.UnsafeExternalRowSorter.insertRow(UnsafeExternalRowSorter.java:138)
-	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.sort_addToSorter_0$(Unknown Source)
-	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
-	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
-	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
-	at org.apache.spark.sql.execution.columnar.DefaultCachedBatchSerializer$$anon$1.hasNext(InMemoryRelation.scala:119)
-	at org.apache.spark.sql.execution.columnar.CachedRDDBuilder$$anon$2.hasNext(InMemoryRelation.scala:288)
-	at org.apache.spark.storage.memory.MemoryStore.putIterator(MemoryStore.scala:223)
-	at org.apache.spark.storage.memory.MemoryStore.putIteratorAsValues(MemoryStore.scala:302)
-	at org.apache.spark.storage.BlockManager.$anonfun$doPutIterator$1(BlockManager.scala:1597)
-	at org.apache.spark.storage.BlockManager.org$apache$spark$storage$BlockManager$$doPut(BlockManager.scala:1524)
-	at org.apache.spark.storage.BlockManager.doPutIterator(BlockManager.scala:1588)
-	at org.apache.spark.storage.BlockManager.getOrElseUpdate(BlockManager.scala:1389)
-	at org.apache.spark.storage.BlockManager.getOrElseUpdateRDDBlock(BlockManager.scala:1343)
-	at org.apache.spark.rdd.RDD.getOrCompute(RDD.scala:379)
-	at org.apache.spark.rdd.RDD.iterator(RDD.scala:329)
-	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
-	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
-	at org.apache.spark.scheduler.Task.run(Task.scala:141)
-	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
-	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
-	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-
-Driver stacktrace:
-	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
-	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
-	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
-	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
-	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
-	at scala.Option.foreach(Option.scala:407)
-	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
-	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
-Caused by: org.apache.spark.memory.SparkOutOfMemoryError: error while calling spill() on org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter@40e2e6a5 : C:\Users\efeba\AppData\Local\Temp\spark_temp\blockmgr-9499b49d-c435-4f4b-8531-6123840fee13\3b\temp_local_d0eff8bd-3b1b-4f1a-b03e-ada1ecdda421 (Sistem belirtilen yolu bulamýyor)
-	at org.apache.spark.memory.TaskMemoryManager.trySpillAndAcquire(TaskMemoryManager.java:254)
-	at org.apache.spark.memory.TaskMemoryManager.acquireExecutionMemory(TaskMemoryManager.java:191)
-	at org.apache.spark.memory.TaskMemoryManager.allocatePage(TaskMemoryManager.java:318)
-	at org.apache.spark.memory.MemoryConsumer.allocateArray(MemoryConsumer.java:96)
-	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.growPointerArrayIfNecessary(UnsafeExternalSorter.java:393)
-	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.allocateMemoryForRecordIfNecessary(UnsafeExternalSorter.java:449)
-	at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.insertRecord(UnsafeExternalSorter.java:487)
-	at org.apache.spark.sql.execution.UnsafeExternalRowSorter.insertRow(UnsafeExternalRowSorter.java:138)
-	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.sort_addToSorter_0$(Unknown Source)
-	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
-	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
-	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
-	at org.apache.spark.sql.execution.columnar.DefaultCachedBatchSerializer$$anon$1.hasNext(InMemoryRelation.scala:119)
-	at org.apache.spark.sql.execution.columnar.CachedRDDBuilder$$anon$2.hasNext(InMemoryRelation.scala:288)
-	at org.apache.spark.storage.memory.MemoryStore.putIterator(MemoryStore.scala:223)
-	at org.apache.spark.storage.memory.MemoryStore.putIteratorAsValues(MemoryStore.scala:302)
-	at org.apache.spark.storage.BlockManager.$anonfun$doPutIterator$1(BlockManager.scala:1597)
-	at org.apache.spark.storage.BlockManager.org$apache$spark$storage$BlockManager$$doPut(BlockManager.scala:1524)
-	at org.apache.spark.storage.BlockManager.doPutIterator(BlockManager.scala:1588)
-	at org.apache.spark.storage.BlockManager.getOrElseUpdate(BlockManager.scala:1389)
-	at org.apache.spark.storage.BlockManager.getOrElseUpdateRDDBlock(BlockManager.scala:1343)
-	at org.apache.spark.rdd.RDD.getOrCompute(RDD.scala:379)
-	at org.apache.spark.rdd.RDD.iterator(RDD.scala:329)
-	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
-	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
-	at org.apache.spark.scheduler.Task.run(Task.scala:141)
-	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
-	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
-	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-
-2025-04-14 15:46:14,573 - INFO - Preparing content-based model...
-2025-04-14 15:46:14,574 - INFO - Preparing data for content-based filtering...
-2025-04-14 15:47:26,846 - ERROR - Initialization error: An error occurred while calling o1665.collectToPython.
-: org.apache.spark.SparkException: Job aborted due to stage failure: Task 7 in stage 164.0 failed 1 times, most recent failure: Lost task 7.0 in stage 164.0 (TID 471) (kubernetes.docker.internal executor driver): java.io.FileNotFoundException: C:\Users\efeba\AppData\Local\Temp\spark_temp\blockmgr-9499b49d-c435-4f4b-8531-6123840fee13\30\temp_shuffle_97b43d7d-8e8b-4507-b20b-4001040cc3ec (Sistem belirtilen yolu bulamýyor)
-	at java.io.FileOutputStream.open0(Native Method)
-	at java.io.FileOutputStream.open(Unknown Source)
-	at java.io.FileOutputStream.<init>(Unknown Source)
-	at org.apache.spark.storage.DiskBlockObjectWriter.initialize(DiskBlockObjectWriter.scala:147)
-	at org.apache.spark.storage.DiskBlockObjectWriter.open(DiskBlockObjectWriter.scala:167)
-	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:330)
-	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:171)
-	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
-	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
-	at org.apache.spark.scheduler.Task.run(Task.scala:141)
-	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
-	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
-	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-
-Driver stacktrace:
-	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
-	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
-	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
-	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
-	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
-	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
-	at scala.Option.foreach(Option.scala:407)
-	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
-	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
-	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
-Caused by: java.io.FileNotFoundException: C:\Users\efeba\AppData\Local\Temp\spark_temp\blockmgr-9499b49d-c435-4f4b-8531-6123840fee13\30\temp_shuffle_97b43d7d-8e8b-4507-b20b-4001040cc3ec (Sistem belirtilen yolu bulamýyor)
-	at java.io.FileOutputStream.open0(Native Method)
-	at java.io.FileOutputStream.open(Unknown Source)
-	at java.io.FileOutputStream.<init>(Unknown Source)
-	at org.apache.spark.storage.DiskBlockObjectWriter.initialize(DiskBlockObjectWriter.scala:147)
-	at org.apache.spark.storage.DiskBlockObjectWriter.open(DiskBlockObjectWriter.scala:167)
-	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:330)
-	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:171)
-	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
-	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
-	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
-	at org.apache.spark.scheduler.Task.run(Task.scala:141)
-	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
-	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
-	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
-	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-
-2025-04-14 15:47:26,945 - INFO - Closing down clientserver connection
-2025-04-14 15:47:26,950 - INFO - Closing down clientserver connection
-2025-04-14 17:11:39,647 - INFO - Loading data...
-2025-04-14 17:11:39,648 - INFO - Loading ratings data...
-2025-04-14 17:11:41,699 - INFO - Error while sending or receiving.
-Traceback (most recent call last):
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
-
-During handling of the above exception, another exception occurred:
-
+2025-04-15 02:44:36,320 - INFO - Shape: 1128 rows, 2 columns
+2025-04-15 02:45:08,935 - INFO - Checking for existing ALS model...
+2025-04-15 02:45:08,937 - INFO - Loading existing ALS model from C:\Users\efeba\BIL401Proje\models/als_model...
+2025-04-15 02:45:08,937 - INFO - Loading ALS model from C:\Users\efeba\BIL401Proje\models/als_model...
+2025-04-15 02:45:09,731 - INFO - Model successfully loaded from C:\Users\efeba\BIL401Proje\models/als_model
+2025-04-15 02:45:09,731 - INFO - Checking for existing content-based model...
+2025-04-15 02:45:09,732 - INFO - Loading existing content-based model from C:\Users\efeba\BIL401Proje\models/content_model...
+2025-04-15 02:45:09,732 - INFO - Loading content-based model from C:\Users\efeba\BIL401Proje\models/content_model...
+2025-04-15 02:45:09,883 - INFO - Content-based model successfully loaded from C:\Users\efeba\BIL401Proje\models/content_model
+2025-04-15 02:45:09,883 - INFO - Content-based model loaded successfully
+2025-04-15 02:45:09,883 - INFO - Initialization complete
+2025-04-15 02:45:10,158 - INFO - Error while sending or receiving.
 Traceback (most recent call last):
   File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 503, in send_command
     self.socket.sendall(command.encode("utf-8"))
 ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
-2025-04-14 17:11:41,701 - INFO - Closing down clientserver connection
-2025-04-14 17:11:41,703 - INFO - Exception while sending command.
-Traceback (most recent call last):
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
-
-During handling of the above exception, another exception occurred:
-
+2025-04-15 02:45:10,158 - INFO - Closing down clientserver connection
+2025-04-15 02:45:10,161 - INFO - Exception while sending command.
 Traceback (most recent call last):
   File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 503, in send_command
     self.socket.sendall(command.encode("utf-8"))
@@ -869,16 +74,40 @@ Traceback (most recent call last):
   File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 506, in send_command
     raise Py4JNetworkError(
 py4j.protocol.Py4JNetworkError: Error while sending
-2025-04-14 17:11:43,747 - INFO - Closing down clientserver connection
-2025-04-14 17:11:43,747 - INFO - Error while receiving.
+2025-04-15 02:45:10,298 - INFO - Error while sending or receiving.
 Traceback (most recent call last):
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 503, in send_command
+    self.socket.sendall(command.encode("utf-8"))
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+2025-04-15 02:45:10,298 - INFO - Closing down clientserver connection
+2025-04-15 02:45:10,298 - INFO - Exception while sending command.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 503, in send_command
+    self.socket.sendall(command.encode("utf-8"))
 ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 506, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending
+2025-04-15 02:45:12,193 - INFO - Closing down clientserver connection
+2025-04-15 02:45:12,193 - INFO - Closing down clientserver connection
+2025-04-15 02:45:12,193 - INFO - Closing down clientserver connection
+2025-04-15 02:45:12,314 - INFO - Closing down clientserver connection
+2025-04-15 02:45:12,314 - ERROR - Initialization error: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-04-15 02:45:12,314 - INFO - Loading ratings data...
+2025-04-15 02:45:12,315 - INFO - Loading ratings from: C:\Users\efeba\BIL401Proje\archive\rating.csv
+2025-04-15 02:45:12,315 - INFO - File size: 658.37 MB
+2025-04-15 02:45:12,316 - INFO - Starting to read ratings CSV file...
+2025-04-15 02:45:14,226 - INFO - Closing down clientserver connection
+2025-04-15 02:45:14,227 - INFO - Closing down clientserver connection
+2025-04-15 02:45:14,349 - INFO - Closing down clientserver connection
+2025-04-15 02:45:14,351 - ERROR - Error loading ratings data: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-04-15 02:45:14,408 - ERROR - Traceback (most recent call last):
   File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 503, in send_command
     self.socket.sendall(command.encode("utf-8"))
 ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
@@ -895,63 +124,14 @@ py4j.protocol.Py4JNetworkError: Error while sending
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1321, in __call__
-    answer = self.gateway_client.send_command(command)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1053, in send_command
-    response = self.send_command(command, binary=binary)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1036, in send_command
-    connection = self._get_connection()
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 284, in _get_connection
-    connection = self._create_new_connection()
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 291, in _create_new_connection
-    connection.connect_to_java_server()
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 438, in connect_to_java_server
-    self.socket.connect((self.java_address, self.java_port))
-ConnectionRefusedError: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
-2025-04-14 17:11:43,748 - INFO - Closing down clientserver connection
-2025-04-14 17:11:43,748 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 503, in send_command
-    self.socket.sendall(command.encode("utf-8"))
-ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 506, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1321, in __call__
-    answer = self.gateway_client.send_command(command)
+  File "C:\Users\efeba\BIL401Proje\src\app.py", line 97, in initialize
+    spark = create_spark_session()
+  File "C:\Users\efeba\BIL401Proje\src\app.py", line 66, in create_spark_session
+    .getOrCreate()
+  File "C:\spark\python\pyspark\sql\session.py", line 503, in getOrCreate
+    getattr(session._jvm, "SparkSession$"), "MODULE$"
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1712, in __getattr__
+    answer = self._gateway_client.send_command(
   File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1053, in send_command
     response = self.send_command(command, binary=binary)
   File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1036, in send_command
@@ -967,135 +147,108 @@ ConnectionRefusedError: [WinError 10061] Hedef makine etkin olarak reddettiðinde
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-04-14 17:11:43,749 - INFO - Closing down clientserver connection
-2025-04-14 17:11:43,750 - INFO - Closing down clientserver connection
-2025-04-14 17:11:43,750 - ERROR - Initialization error: An error occurred while calling o53.csv
-2025-04-14 17:11:43,750 - INFO - Loading ratings data...
-2025-04-14 17:11:45,784 - INFO - Closing down clientserver connection
-2025-04-14 17:11:45,784 - ERROR - Fatal error in fallback initialization: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
-2025-04-14 17:11:45,809 - INFO - Closing down clientserver connection
-2025-04-14 17:11:45,867 - INFO - Closing down clientserver connection
-2025-04-14 17:18:35,634 - INFO - Data path set to: C:\Users\efeba\BIL401Proje\archive
-2025-04-14 17:18:35,685 - INFO - Loading data...
-2025-04-14 17:18:35,685 - INFO - Loading ratings data...
-2025-04-14 17:18:37,322 - ERROR - Initialization error: [PATH_NOT_FOUND] Path does not exist: file:/C:/Users/efeba/BIL401Proje/archive/rating.csv.
-2025-04-14 17:18:37,323 - INFO - Loading ratings data...
-2025-04-14 17:18:37,343 - ERROR - Fatal error in fallback initialization: [PATH_NOT_FOUND] Path does not exist: file:/C:/Users/efeba/BIL401Proje/archive/rating.csv.
-2025-04-14 17:18:37,361 - INFO - Closing down clientserver connection
-2025-04-14 17:20:29,354 - INFO - Data path set to: C:\Users\efeba\BIL401Proje\archive
-2025-04-14 17:20:29,396 - INFO - Loading data...
-2025-04-14 17:20:29,396 - INFO - Loading ratings data...
-2025-04-14 17:20:36,995 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-RuntimeError: reentrant call inside <_io.BufferedReader name=3536>
-2025-04-14 17:20:36,997 - INFO - Closing down clientserver connection
-2025-04-14 17:20:36,997 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-RuntimeError: reentrant call inside <_io.BufferedReader name=3536>
+  File "C:\Users\efeba\BIL401Proje\src\data_loader.py", line 93, in load_ratings
+    ratings_df = self.spark.read.option("header", "true") \
+  File "C:\spark\python\pyspark\sql\session.py", line 1706, in read
+    return DataFrameReader(self)
+  File "C:\spark\python\pyspark\sql\readwriter.py", line 70, in __init__
+    self._jreader = spark._jsparkSession.read()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1321, in __call__
+    answer = self.gateway_client.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1036, in send_command
+    connection = self._get_connection()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 284, in _get_connection
+    connection = self._create_new_connection()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 291, in _create_new_connection
+    connection.connect_to_java_server()
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 438, in connect_to_java_server
+    self.socket.connect((self.java_address, self.java_port))
+ConnectionRefusedError: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
 
-During handling of the above exception, another exception occurred:
-
+2025-04-15 02:45:16,262 - INFO - Closing down clientserver connection
+2025-04-15 02:45:16,263 - INFO - Closing down clientserver connection
+2025-04-15 02:45:16,427 - INFO - Closing down clientserver connection
+2025-04-15 02:45:16,427 - ERROR - Fatal error in fallback initialization: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-04-15 02:45:16,427 - ERROR - Application startup error: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-04-15 02:45:16,452 - INFO - Closing down clientserver connection
+2025-04-15 02:45:16,453 - INFO - Closing down clientserver connection
+2025-04-15 02:45:16,454 - INFO - Closing down clientserver connection
+2025-04-15 02:45:16,455 - INFO - Closing down clientserver connection
+2025-04-15 02:47:40,082 - INFO - Starting Spark session...
+2025-04-15 02:47:46,904 - INFO - Spark session created successfully
+2025-04-15 02:47:46,906 - INFO - Data path set to: C:\Users\efeba\BIL401Proje\archive
+2025-04-15 02:47:46,949 - INFO - Checking for existing ALS model...
+2025-04-15 02:47:46,949 - INFO - Loading existing ALS model from C:\Users\efeba\BIL401Proje\models/als_model...
+2025-04-15 02:47:46,951 - INFO - Loading ALS model from C:\Users\efeba\BIL401Proje\models/als_model...
+2025-04-15 02:47:51,777 - INFO - Model successfully loaded from C:\Users\efeba\BIL401Proje\models/als_model
+2025-04-15 02:47:51,777 - INFO - ALS model loaded successfully
+2025-04-15 02:47:51,777 - INFO - Checking for existing content-based model...
+2025-04-15 02:47:51,778 - INFO - Loading existing content-based model from C:\Users\efeba\BIL401Proje\models/content_model...
+2025-04-15 02:47:51,778 - INFO - Loading content-based model from C:\Users\efeba\BIL401Proje\models/content_model...
+2025-04-15 02:47:51,872 - INFO - Content-based model successfully loaded from C:\Users\efeba\BIL401Proje\models/content_model
+2025-04-15 02:47:51,872 - INFO - Content-based model loaded successfully
+2025-04-15 02:47:51,872 - INFO - Loading minimal data for web interface...
+2025-04-15 02:47:51,872 - INFO - Loading ratings data...
+2025-04-15 02:47:51,872 - INFO - Loading ratings from: C:\Users\efeba\BIL401Proje\archive\rating.csv
+2025-04-15 02:47:51,872 - INFO - File size: 658.37 MB
+2025-04-15 02:47:51,872 - INFO - Starting to read ratings CSV file...
+2025-04-15 02:48:08,229 - INFO - Ratings CSV file read in 16.36 seconds
+2025-04-15 02:48:08,230 - INFO - First 5 rows of ratings data:
+2025-04-15 02:48:08,449 - INFO - Sample data:
+2025-04-15 02:48:08,449 - INFO -    userId  movieId  rating           timestamp
+0       1        2     3.5 2005-04-02 23:53:47
+1       1       29     3.5 2005-04-02 23:31:16
+2       1       32     3.5 2005-04-02 23:33:39
+3       1       47     3.5 2005-04-02 23:32:07
+4       1       50     3.5 2005-04-02 23:29:40
+2025-04-15 02:48:08,449 - INFO - Validating ratings data...
+2025-04-15 02:48:08,449 - INFO - 
+Validating ratings DataFrame:
+2025-04-15 02:48:11,371 - INFO - Shape: 20000263 rows, 4 columns
+2025-04-15 02:49:21,245 - INFO - Ratings data validated in 72.80 seconds
+2025-04-15 02:49:21,245 - INFO - Handling missing values in ratings data...
+2025-04-15 02:49:50,302 - INFO - Missing values handled in 29.05 seconds
+2025-04-15 02:49:50,303 - INFO - Converting rating column to double...
+2025-04-15 02:49:50,315 - INFO - Converting timestamp column...
+2025-04-15 02:49:50,331 - INFO - Calculating rating statistics...
+2025-04-15 02:50:00,387 - INFO - Rating statistics: count=20000263, mean=3.53, stddev=1.05, min=0.5, max=5.0
+2025-04-15 02:50:11,265 - INFO - Rating distribution: 0.5: 239125, 1.0: 680732, 1.5: 279252, 2.0: 1430997, 2.5: 883398, 3.0: 4291193, 3.5: 2200156, 4.0: 5561926, 4.5: 1534824, 5.0: 2898660
+2025-04-15 02:50:11,265 - INFO - Total ratings data processing time: 118.21 seconds
+2025-04-15 02:50:27,992 - INFO - Loaded 401058 ratings (2% sample)
+2025-04-15 02:50:27,992 - INFO - Loading movies data...
+2025-04-15 02:50:27,992 - INFO - Loading movies from: C:\Users\efeba\BIL401Proje\archive\movie.csv
+2025-04-15 02:50:28,206 - INFO - 
+Validating movies DataFrame:
+2025-04-15 02:50:28,280 - INFO - Shape: 27278 rows, 3 columns
+2025-04-15 02:50:29,307 - INFO - Loaded 27278 movies
+2025-04-15 02:50:29,771 - INFO - Loaded 20 sample user IDs
+2025-04-15 02:50:29,771 - INFO - Loading tags data...
+2025-04-15 02:50:30,325 - INFO - 
+Validating tags DataFrame:
+2025-04-15 02:50:30,465 - INFO - Shape: 465564 rows, 4 columns
+2025-04-15 02:50:31,713 - WARNING - Column timestamp has 3 null values
+2025-04-15 02:50:34,265 - INFO - Loaded 23163 tags (5% sample)
+2025-04-15 02:50:34,265 - INFO - Loading genome scores data...
+2025-04-15 02:50:40,206 - INFO - 
+Validating genome scores DataFrame:
+2025-04-15 02:50:41,680 - INFO - Shape: 11709768 rows, 3 columns
+2025-04-15 02:51:23,792 - INFO - Loading genome tags data...
+2025-04-15 02:51:23,900 - INFO - 
+Validating genome tags DataFrame:
+2025-04-15 02:51:23,949 - INFO - Shape: 1128 rows, 2 columns
+2025-04-15 02:51:24,311 - INFO - Loaded genome data (1% sample)
+2025-04-15 02:51:24,313 - INFO - Initialization complete
+2025-04-15 02:51:24,472 - INFO - Starting Spark session...
+2025-04-15 02:51:25,256 - INFO - Error while sending or receiving.
 Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-04-14 17:20:36,999 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
-    return f(*a, **kw)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o37.sc
-2025-04-14 17:20:37,001 - INFO - Closing down clientserver connection
-2025-04-14 17:20:37,003 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
-    return f(*a, **kw)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o37.sc
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-04-14 17:20:37,004 - INFO - Closing down clientserver connection
-2025-04-14 17:20:37,004 - ERROR - Initialization error: An error occurred while calling o53.csv
-2025-04-14 17:20:37,004 - INFO - Loading ratings data...
-2025-04-14 17:20:37,588 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 503, in send_command
+    self.socket.sendall(command.encode("utf-8"))
 ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
-2025-04-14 17:20:37,589 - INFO - Error while receiving.
+2025-04-15 02:51:25,262 - INFO - Closing down clientserver connection
+2025-04-15 02:51:25,262 - INFO - Exception while sending command.
 Traceback (most recent call last):
-  File "C:\Users\efeba\BIL401Proje\src\app.py", line 114, in initialize
-    ratings_df = data_loader.load_ratings()
-  File "C:\Users\efeba\BIL401Proje\src\data_loader.py", line 77, in load_ratings
-    ratings_df = self.spark.read.csv(
-  File "C:\spark\python\pyspark\sql\readwriter.py", line 740, in csv
-    return self._df(self._jreader.csv(self._spark._sc._jvm.PythonUtils.toSeq(path)))
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
-    return f(*a, **kw)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o53.csv
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
-2025-04-14 17:20:37,590 - INFO - Closing down clientserver connection
-2025-04-14 17:20:37,592 - INFO - Closing down clientserver connection
-2025-04-14 17:20:37,592 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 503, in send_command
+    self.socket.sendall(command.encode("utf-8"))
 ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
 
 During handling of the above exception, another exception occurred:
@@ -1103,27 +256,321 @@ During handling of the above exception, another exception occurred:
 Traceback (most recent call last):
   File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
     response = connection.send_command(command)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 506, in send_command
     raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-04-14 17:20:37,592 - ERROR - Exception while sending command.
+py4j.protocol.Py4JNetworkError: Error while sending
+2025-04-15 02:51:26,649 - INFO - Error while sending or receiving.
 Traceback (most recent call last):
-  File "C:\Users\efeba\BIL401Proje\src\app.py", line 114, in initialize
-    ratings_df = data_loader.load_ratings()
-  File "C:\Users\efeba\BIL401Proje\src\data_loader.py", line 77, in load_ratings
-    ratings_df = self.spark.read.csv(
-  File "C:\spark\python\pyspark\sql\readwriter.py", line 740, in csv
-    return self._df(self._jreader.csv(self._spark._sc._jvm.PythonUtils.toSeq(path)))
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
-    return f(*a, **kw)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o53.csv
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 503, in send_command
+    self.socket.sendall(command.encode("utf-8"))
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+2025-04-15 02:51:26,649 - INFO - Closing down clientserver connection
+2025-04-15 02:51:26,649 - INFO - Exception while sending command.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 503, in send_command
+    self.socket.sendall(command.encode("utf-8"))
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
 
 During handling of the above exception, another exception occurred:
 
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 506, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending
+2025-04-15 02:51:27,312 - INFO - Closing down clientserver connection
+2025-04-15 02:51:27,313 - INFO - Closing down clientserver connection
+2025-04-15 02:51:27,313 - INFO - Closing down clientserver connection
+2025-04-15 02:51:28,677 - INFO - Closing down clientserver connection
+2025-04-15 02:51:28,678 - ERROR - Initialization error: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-04-15 02:51:28,678 - WARNING - Attempting minimal fallback initialization...
+2025-04-15 02:51:29,346 - INFO - Closing down clientserver connection
+2025-04-15 02:51:29,349 - INFO - Closing down clientserver connection
+2025-04-15 02:51:30,740 - INFO - Closing down clientserver connection
+2025-04-15 02:51:30,741 - ERROR - Fatal error in fallback initialization: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-04-15 02:51:30,741 - ERROR - Application startup error: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-04-15 02:51:30,757 - INFO - Closing down clientserver connection
+2025-04-15 02:51:30,757 - INFO - Closing down clientserver connection
+2025-04-15 02:51:30,757 - INFO - Closing down clientserver connection
+2025-04-15 02:57:44,784 - INFO - Loading ALS model from C:\Users\efeba\BIL401Proje\models\als_model...
+2025-04-15 02:57:44,785 - ERROR - Error loading ALS model: Cannot load _jvm from SparkContext. Is SparkContext initialized?
+2025-04-15 02:57:44,785 - INFO - Loading content-based model from C:\Users\efeba\BIL401Proje\models\content_model...
+2025-04-15 02:57:45,516 - INFO - Content-based model loaded successfully
+2025-04-15 02:57:45,516 - INFO - Loading movies from CSV...
+2025-04-15 02:57:45,565 - INFO - Loaded 27278 movies from CSV
+2025-04-15 02:57:45,565 - INFO - Loading ratings from CSV...
+2025-04-15 02:57:57,685 - INFO - Loaded 400005 ratings from CSV (2.0% sample)
+2025-04-15 02:57:57,706 - INFO - Loaded 20 sample user IDs
+2025-04-15 02:57:57,707 - INFO - Initialization complete
+2025-04-15 02:57:57,882 - INFO - Starting Flask server...
+2025-04-15 02:57:57,915 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-15 02:57:57,915 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 02:59:28,999 - INFO - Initializing application...
+2025-04-15 02:59:28,999 - INFO - Loading content-based model from C:\Users\efeba\BIL401Proje\models\content_model...
+2025-04-15 02:59:29,840 - INFO - Content-based model loaded successfully
+2025-04-15 02:59:29,841 - INFO - Loading movies from CSV...
+2025-04-15 02:59:29,872 - INFO - Loaded 27278 movies from CSV
+2025-04-15 02:59:29,872 - INFO - Loading ratings from CSV...
+2025-04-15 02:59:41,735 - INFO - Loaded 1000013 ratings from CSV (5.0% sample)
+2025-04-15 02:59:41,774 - INFO - Loaded 20 sample user IDs
+2025-04-15 02:59:41,774 - INFO - Initialization complete
+2025-04-15 02:59:41,774 - INFO - Starting Flask server...
+2025-04-15 02:59:41,797 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-15 02:59:41,797 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 02:59:56,604 - INFO - 127.0.0.1 - - [15/Apr/2025 02:59:56] "GET / HTTP/1.1" 200 -
+2025-04-15 02:59:57,385 - INFO - 127.0.0.1 - - [15/Apr/2025 02:59:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-15 03:00:00,748 - INFO - 127.0.0.1 - - [15/Apr/2025 03:00:00] "[33mPOST /get_recommendations HTTP/1.1[0m" 404 -
+2025-04-15 03:00:05,006 - INFO - 127.0.0.1 - - [15/Apr/2025 03:00:05] "[33mPOST /get_recommendations HTTP/1.1[0m" 404 -
+2025-04-15 03:00:05,811 - INFO - 127.0.0.1 - - [15/Apr/2025 03:00:05] "[33mPOST /get_recommendations HTTP/1.1[0m" 404 -
+2025-04-15 03:00:34,703 - INFO - 127.0.0.1 - - [15/Apr/2025 03:00:34] "[33mPOST /compare_algorithms HTTP/1.1[0m" 404 -
+2025-04-15 03:00:40,866 - INFO - 127.0.0.1 - - [15/Apr/2025 03:00:40] "[33mPOST /get_recommendations HTTP/1.1[0m" 404 -
+2025-04-15 03:00:41,356 - INFO - 127.0.0.1 - - [15/Apr/2025 03:00:41] "[33mPOST /get_recommendations HTTP/1.1[0m" 404 -
+2025-04-15 03:00:41,736 - INFO - 127.0.0.1 - - [15/Apr/2025 03:00:41] "[33mPOST /get_recommendations HTTP/1.1[0m" 404 -
+2025-04-15 03:00:56,079 - INFO - 127.0.0.1 - - [15/Apr/2025 03:00:56] "GET / HTTP/1.1" 200 -
+2025-04-15 03:01:03,932 - INFO - 127.0.0.1 - - [15/Apr/2025 03:01:03] "[33mPOST /get_recommendations HTTP/1.1[0m" 404 -
+2025-04-15 03:02:08,079 - INFO - Flask server started successfully
+2025-04-15 03:02:13,974 - INFO - Initializing application...
+2025-04-15 03:02:13,975 - INFO - Loading content-based model from C:\Users\efeba\BIL401Proje\models\content_model...
+2025-04-15 03:02:14,865 - INFO - Content-based model loaded successfully
+2025-04-15 03:02:14,867 - INFO - Loading movies from CSV...
+2025-04-15 03:02:14,898 - INFO - Loaded 27278 movies from CSV
+2025-04-15 03:02:14,898 - INFO - Loading ratings from CSV...
+2025-04-15 03:02:26,981 - INFO - Loaded 1000013 ratings from CSV (5.0% sample)
+2025-04-15 03:02:27,013 - INFO - Loaded 20 sample user IDs
+2025-04-15 03:02:27,013 - INFO - Initialization complete
+2025-04-15 03:02:27,013 - INFO - Starting Flask server...
+2025-04-15 03:02:27,038 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-15 03:02:27,039 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 03:02:55,171 - INFO - 127.0.0.1 - - [15/Apr/2025 03:02:55] "GET / HTTP/1.1" 200 -
+2025-04-15 03:02:57,776 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:02:57,940 - INFO - 127.0.0.1 - - [15/Apr/2025 03:02:57] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:02:58,855 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:02:58,903 - INFO - 127.0.0.1 - - [15/Apr/2025 03:02:58] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:02:59,424 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:02:59,471 - INFO - 127.0.0.1 - - [15/Apr/2025 03:02:59] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:03:07,998 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:03:08,032 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:03:08,056 - INFO - 127.0.0.1 - - [15/Apr/2025 03:03:08] "POST /compare_algorithms HTTP/1.1" 200 -
+2025-04-15 03:03:09,509 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:03:09,539 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:03:09,551 - INFO - 127.0.0.1 - - [15/Apr/2025 03:03:09] "POST /compare_algorithms HTTP/1.1" 200 -
+2025-04-15 03:03:11,163 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:03:11,189 - INFO - 127.0.0.1 - - [15/Apr/2025 03:03:11] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:03:12,086 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:03:12,118 - INFO - 127.0.0.1 - - [15/Apr/2025 03:03:12] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:03:12,606 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:03:12,639 - INFO - 127.0.0.1 - - [15/Apr/2025 03:03:12] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:03:14,349 - INFO - 127.0.0.1 - - [15/Apr/2025 03:03:14] "POST /get_user_ratings HTTP/1.1" 200 -
+2025-04-15 03:03:23,631 - INFO - 127.0.0.1 - - [15/Apr/2025 03:03:23] "GET / HTTP/1.1" 200 -
+2025-04-15 03:03:27,740 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:03:27,755 - INFO - 127.0.0.1 - - [15/Apr/2025 03:03:27] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:03:57,221 - INFO - 127.0.0.1 - - [15/Apr/2025 03:03:57] "GET / HTTP/1.1" 200 -
+2025-04-15 03:03:59,952 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:04:00,007 - INFO - 127.0.0.1 - - [15/Apr/2025 03:04:00] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:05:13,760 - INFO - Flask server started successfully
+2025-04-15 03:05:17,456 - INFO - Initializing application...
+2025-04-15 03:05:17,458 - INFO - Loading content-based model from C:\Users\efeba\BIL401Proje\models\content_model...
+2025-04-15 03:05:18,486 - INFO - Content-based model loaded successfully
+2025-04-15 03:05:18,486 - INFO - Loading movies from CSV...
+2025-04-15 03:05:18,522 - INFO - Loaded 27278 movies from CSV
+2025-04-15 03:05:18,523 - INFO - Loading ratings from CSV...
+2025-04-15 03:05:30,056 - INFO - Loaded 1000013 ratings from CSV (5.0% sample)
+2025-04-15 03:05:30,090 - INFO - Loaded 20 sample user IDs
+2025-04-15 03:05:30,090 - INFO - Initialization complete
+2025-04-15 03:05:30,090 - INFO - Starting Flask server...
+2025-04-15 03:05:30,114 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-15 03:05:30,114 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 03:05:41,921 - INFO - 127.0.0.1 - - [15/Apr/2025 03:05:41] "GET / HTTP/1.1" 200 -
+2025-04-15 03:05:47,134 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:05:47,356 - INFO - 127.0.0.1 - - [15/Apr/2025 03:05:47] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:05:47,862 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:05:47,908 - INFO - 127.0.0.1 - - [15/Apr/2025 03:05:47] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:05:51,121 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:05:51,158 - INFO - 127.0.0.1 - - [15/Apr/2025 03:05:51] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:06:03,930 - INFO - 127.0.0.1 - - [15/Apr/2025 03:06:03] "GET / HTTP/1.1" 200 -
+2025-04-15 03:06:07,021 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:06:07,071 - INFO - 127.0.0.1 - - [15/Apr/2025 03:06:07] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:06:27,511 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:06:27,524 - INFO - 127.0.0.1 - - [15/Apr/2025 03:06:27] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:09:18,027 - INFO - Flask server started successfully
+2025-04-15 03:09:20,470 - INFO - Initializing application...
+2025-04-15 03:09:20,470 - INFO - Loading content-based model from C:\Users\efeba\BIL401Proje\models\content_model...
+2025-04-15 03:09:21,436 - INFO - Content-based model loaded successfully
+2025-04-15 03:09:21,436 - INFO - Loading movies from CSV...
+2025-04-15 03:09:21,465 - INFO - Loaded 27278 movies from CSV
+2025-04-15 03:09:21,465 - INFO - Loading ratings from CSV...
+2025-04-15 03:09:33,684 - INFO - Loaded 1000013 ratings from CSV (5.0% sample)
+2025-04-15 03:09:33,711 - INFO - Loaded 20 sample user IDs
+2025-04-15 03:09:33,712 - INFO - Initialization complete
+2025-04-15 03:09:33,712 - INFO - Starting Flask server...
+2025-04-15 03:09:33,732 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-15 03:09:33,734 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 03:09:38,495 - INFO - 127.0.0.1 - - [15/Apr/2025 03:09:38] "GET / HTTP/1.1" 200 -
+2025-04-15 03:09:39,949 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:09:40,075 - INFO - 127.0.0.1 - - [15/Apr/2025 03:09:40] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:09:42,186 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:09:42,201 - INFO - 127.0.0.1 - - [15/Apr/2025 03:09:42] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:09:42,876 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:09:42,917 - INFO - 127.0.0.1 - - [15/Apr/2025 03:09:42] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:09:52,610 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:09:52,657 - INFO - 127.0.0.1 - - [15/Apr/2025 03:09:52] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:09:59,536 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:09:59,548 - INFO - 127.0.0.1 - - [15/Apr/2025 03:09:59] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:10:01,967 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:10:01,979 - INFO - 127.0.0.1 - - [15/Apr/2025 03:10:01] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:10:02,461 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:10:02,493 - INFO - 127.0.0.1 - - [15/Apr/2025 03:10:02] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:10:04,438 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:10:04,489 - INFO - 127.0.0.1 - - [15/Apr/2025 03:10:04] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:10:05,899 - INFO - Using content-based recommendations instead of ALS due to JVM issues
+2025-04-15 03:10:05,934 - INFO - 127.0.0.1 - - [15/Apr/2025 03:10:05] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 03:11:20,895 - INFO - Flask server started successfully
+2025-04-15 19:25:23,401 - INFO - Initializing application...
+2025-04-15 19:26:48,809 - INFO - Initializing application...
+2025-04-15 19:27:52,640 - INFO - MODEL_DIR: C:\Users\efeba\BIL401Proje\models - Exists: True
+2025-04-15 19:27:52,640 - INFO - ALS_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\als_model - Exists: True
+2025-04-15 19:27:52,640 - INFO - CONTENT_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\content_model - Exists: True
+2025-04-15 19:27:52,641 - INFO - DATA_PATH: C:\Users\efeba\BIL401Proje\archive - Exists: True
+2025-04-15 19:27:52,641 - INFO - movie.csv: True
+2025-04-15 19:27:52,641 - INFO - rating.csv: True
+2025-04-15 19:27:52,644 - INFO - Initializing application...
+2025-04-15 19:28:35,647 - INFO - MODEL_DIR: C:\Users\efeba\BIL401Proje\models - Exists: True
+2025-04-15 19:28:35,647 - INFO - ALS_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\als_model - Exists: True
+2025-04-15 19:28:35,647 - INFO - CONTENT_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\content_model - Exists: True
+2025-04-15 19:28:35,648 - INFO - DATA_PATH: C:\Users\efeba\BIL401Proje\archive - Exists: True
+2025-04-15 19:28:35,648 - INFO - movie.csv: True
+2025-04-15 19:28:35,648 - INFO - rating.csv: True
+2025-04-15 19:28:35,651 - INFO - Initializing application...
+2025-04-15 19:28:35,651 - INFO - Trying to start Spark session...
+2025-04-15 19:31:55,048 - INFO - MODEL_DIR: C:\Users\efeba\BIL401Proje\models - Exists: True
+2025-04-15 19:31:55,049 - INFO - ALS_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\als_model - Exists: True
+2025-04-15 19:31:55,049 - INFO - CONTENT_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\content_model - Exists: True
+2025-04-15 19:31:55,049 - INFO - DATA_PATH: C:\Users\efeba\BIL401Proje\archive - Exists: True
+2025-04-15 19:31:55,049 - INFO - movie.csv: True
+2025-04-15 19:31:55,050 - INFO - rating.csv: True
+2025-04-15 19:31:55,052 - INFO - Initializing application...
+2025-04-15 19:31:55,052 - INFO - Trying to start Spark session...
+2025-04-15 19:49:48,481 - INFO - MODEL_DIR: C:\Users\efeba\BIL401Proje\models - Exists: True
+2025-04-15 19:49:48,481 - INFO - ALS_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\als_model - Exists: True
+2025-04-15 19:49:48,481 - INFO - CONTENT_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\content_model - Exists: True
+2025-04-15 19:49:48,482 - INFO - DATA_PATH: C:\Users\efeba\BIL401Proje\archive - Exists: True
+2025-04-15 19:49:48,483 - INFO - movie.csv: True
+2025-04-15 19:49:48,483 - INFO - rating.csv: True
+2025-04-15 19:49:48,486 - INFO - Initializing application...
+2025-04-15 19:49:48,486 - INFO - Trying to start Spark session...
+2025-04-15 19:52:58,687 - INFO - MODEL_DIR: C:\Users\efeba\BIL401Proje\models - Exists: True
+2025-04-15 19:52:58,687 - INFO - ALS_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\als_model - Exists: True
+2025-04-15 19:52:58,688 - INFO - CONTENT_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\content_model - Exists: True
+2025-04-15 19:52:58,688 - INFO - DATA_PATH: C:\Users\efeba\BIL401Proje\archive - Exists: True
+2025-04-15 19:52:58,688 - INFO - movie.csv: True
+2025-04-15 19:52:58,688 - INFO - rating.csv: True
+2025-04-15 19:52:58,691 - INFO - Initializing application...
+2025-04-15 19:52:58,691 - INFO - Trying to start Spark session...
+2025-04-15 19:53:11,684 - INFO - Spark session started successfully.
+2025-04-15 19:53:11,684 - INFO - Loading ALS model from C:\Users\efeba\BIL401Proje\models\als_model...
+2025-04-15 19:53:13,374 - ERROR - Error loading ALS model: An error occurred while calling o28.load.
+: java.lang.UnsatisfiedLinkError: org.apache.hadoop.io.nativeio.NativeIO$Windows.access0(Ljava/lang/String;I)Z
+	at org.apache.hadoop.io.nativeio.NativeIO$Windows.access0(Native Method)
+	at org.apache.hadoop.io.nativeio.NativeIO$Windows.access(NativeIO.java:793)
+	at org.apache.hadoop.fs.FileUtil.canRead(FileUtil.java:1249)
+	at org.apache.hadoop.fs.FileUtil.list(FileUtil.java:1454)
+	at org.apache.hadoop.fs.RawLocalFileSystem.listStatus(RawLocalFileSystem.java:601)
+	at org.apache.hadoop.fs.FileSystem.listStatus(FileSystem.java:1972)
+	at org.apache.hadoop.fs.FileSystem.listStatus(FileSystem.java:2014)
+	at org.apache.hadoop.fs.FileSystem$4.<init>(FileSystem.java:2180)
+	at org.apache.hadoop.fs.FileSystem.listLocatedStatus(FileSystem.java:2179)
+	at org.apache.hadoop.fs.ChecksumFileSystem.listLocatedStatus(ChecksumFileSystem.java:783)
+	at org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:285)
+	at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:244)
+	at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:332)
+	at org.apache.spark.rdd.HadoopRDD.getPartitions(HadoopRDD.scala:210)
+	at org.apache.spark.rdd.RDD.$anonfun$partitions$2(RDD.scala:294)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:290)
+	at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:49)
+	at org.apache.spark.rdd.RDD.$anonfun$partitions$2(RDD.scala:294)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:290)
+	at org.apache.spark.rdd.RDD.$anonfun$take$1(RDD.scala:1471)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+	at org.apache.spark.rdd.RDD.take(RDD.scala:1465)
+	at org.apache.spark.rdd.RDD.$anonfun$first$1(RDD.scala:1506)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+	at org.apache.spark.rdd.RDD.first(RDD.scala:1506)
+	at org.apache.spark.ml.util.DefaultParamsReader$.loadMetadata(ReadWrite.scala:587)
+	at org.apache.spark.ml.recommendation.ALSModel$ALSModelReader.load(ALS.scala:563)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
+
+2025-04-15 19:53:13,376 - INFO - Loading content-based model from C:\Users\efeba\BIL401Proje\models\content_model...
+2025-04-15 19:53:17,003 - INFO - Content-based model loaded successfully
+2025-04-15 19:53:17,003 - INFO - Loading movies from CSV...
+2025-04-15 19:53:17,064 - INFO - Loaded 27278 movies from CSV
+2025-04-15 19:53:17,064 - INFO - Loading ratings from CSV...
+2025-04-15 19:53:25,779 - INFO - Closing down clientserver connection
+2025-04-15 19:56:19,707 - INFO - MODEL_DIR: C:\Users\efeba\BIL401Proje\models - Exists: True
+2025-04-15 19:56:19,708 - INFO - ALS_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\als_model - Exists: True
+2025-04-15 19:56:19,708 - INFO - CONTENT_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\content_model - Exists: True
+2025-04-15 19:56:19,708 - INFO - DATA_PATH: C:\Users\efeba\BIL401Proje\archive - Exists: True
+2025-04-15 19:56:19,708 - INFO - movie.csv: True
+2025-04-15 19:56:19,709 - INFO - rating.csv: True
+2025-04-15 19:56:19,711 - INFO - Initializing application...
+2025-04-15 19:56:19,712 - INFO - Trying to start Spark session...
+2025-04-15 19:56:23,781 - INFO - Spark session started successfully.
+2025-04-15 19:56:23,781 - INFO - Loading ALS model from C:\Users\efeba\BIL401Proje\models\als_model...
+2025-04-15 19:56:28,463 - INFO - ALS model loaded successfully
+2025-04-15 19:56:28,464 - INFO - Loading content-based model from C:\Users\efeba\BIL401Proje\models\content_model...
+2025-04-15 19:56:29,133 - INFO - Content-based model loaded successfully
+2025-04-15 19:56:29,133 - INFO - Loading movies from CSV...
+2025-04-15 19:56:29,165 - INFO - Loaded 27278 movies from CSV
+2025-04-15 19:56:29,165 - INFO - Loading ratings from CSV...
+2025-04-15 19:56:42,156 - INFO - Loaded 1000013 ratings from CSV (5.0% sample)
+2025-04-15 19:56:42,196 - INFO - Loaded 20 sample user IDs
+2025-04-15 19:56:42,196 - INFO - Initialization complete
+2025-04-15 19:56:42,197 - INFO - Starting Flask server...
+2025-04-15 19:56:42,237 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-15 19:56:42,239 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 19:56:47,591 - INFO - 127.0.0.1 - - [15/Apr/2025 19:56:47] "GET / HTTP/1.1" 200 -
+2025-04-15 19:56:48,062 - INFO - 127.0.0.1 - - [15/Apr/2025 19:56:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-15 19:57:00,785 - INFO - 127.0.0.1 - - [15/Apr/2025 19:57:00] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 19:57:00,789 - INFO - Closing down clientserver connection
+2025-04-15 19:57:03,747 - INFO - 127.0.0.1 - - [15/Apr/2025 19:57:03] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 19:57:10,811 - INFO - 127.0.0.1 - - [15/Apr/2025 19:57:10] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 19:57:10,815 - INFO - Closing down clientserver connection
+2025-04-15 19:57:15,003 - INFO - 127.0.0.1 - - [15/Apr/2025 19:57:15] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-15 19:57:19,597 - INFO - 127.0.0.1 - - [15/Apr/2025 19:57:19] "POST /compare_algorithms HTTP/1.1" 200 -
+2025-04-15 19:57:19,601 - INFO - Closing down clientserver connection
+2025-04-15 19:57:23,387 - INFO - 127.0.0.1 - - [15/Apr/2025 19:57:23] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-15 19:57:34,250 - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
+2025-04-15 19:57:34,271 - INFO - Closing down clientserver connection
+2025-04-15 19:57:34,271 - ERROR - Exception while sending command.
 Traceback (most recent call last):
   File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
     answer = smart_decode(self.stream.readline()[:-1])
@@ -1139,118 +586,233 @@ Traceback (most recent call last):
   File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
     raise Py4JNetworkError(
 py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-04-14 17:20:37,594 - INFO - Closing down clientserver connection
-2025-04-14 17:20:37,594 - INFO - Closing down clientserver connection
-2025-04-14 17:20:37,595 - ERROR - Fatal error in fallback initialization: An error occurred while calling o60.csv
-2025-04-14 17:22:34,313 - INFO - Data path set to: C:\Users\efeba\BIL401Proje\archive
-2025-04-14 17:22:34,358 - INFO - Loading data...
-2025-04-14 17:22:34,358 - INFO - Loading ratings data...
-2025-04-14 17:22:34,358 - INFO - Loading ratings from: C:\Users\efeba\BIL401Proje\archive\rating.csv
-2025-04-14 17:22:41,003 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-RuntimeError: reentrant call inside <_io.BufferedReader name=3956>
-2025-04-14 17:22:41,004 - INFO - Closing down clientserver connection
-2025-04-14 17:22:41,005 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-RuntimeError: reentrant call inside <_io.BufferedReader name=3956>
+2025-04-15 19:57:34,273 - INFO - Closing down clientserver connection
+2025-04-15 19:57:34,273 - ERROR - Error starting server: An error occurred while calling o16.sc
+2025-04-15 19:57:34,289 - INFO - Closing down clientserver connection
+2025-04-16 20:57:41,661 - INFO - MODEL_DIR: C:\Users\efeba\BIL401Proje\models - Exists: True
+2025-04-16 20:57:41,661 - INFO - ALS_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\als_model - Exists: True
+2025-04-16 20:57:41,663 - INFO - CONTENT_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\content_model - Exists: True
+2025-04-16 20:57:41,663 - INFO - DATA_PATH: C:\Users\efeba\BIL401Proje\archive - Exists: True
+2025-04-16 20:57:41,665 - INFO - movie.csv: True
+2025-04-16 20:57:41,666 - INFO - rating.csv: True
+2025-04-16 20:57:41,680 - INFO - Initializing application...
+2025-04-16 20:57:41,681 - INFO - Trying to start Spark session...
+2025-04-16 20:57:54,060 - INFO - Spark session started successfully.
+2025-04-16 20:57:54,060 - INFO - Loading ALS model from C:\Users\efeba\BIL401Proje\models\als_model...
+2025-04-16 20:58:05,684 - INFO - ALS model loaded successfully
+2025-04-16 20:58:05,685 - INFO - Loading content-based model from C:\Users\efeba\BIL401Proje\models\content_model...
+2025-04-16 20:58:08,563 - INFO - Content-based model loaded successfully
+2025-04-16 20:58:08,564 - INFO - Loading movies from CSV...
+2025-04-16 20:58:08,652 - INFO - Loaded 27278 movies from CSV
+2025-04-16 20:58:08,653 - INFO - Loading ratings from CSV...
+2025-04-16 20:58:38,527 - INFO - Loaded 1000013 ratings from CSV (5.0% sample)
+2025-04-16 20:58:38,586 - INFO - Loaded 20 sample user IDs
+2025-04-16 20:58:38,586 - INFO - Initialization complete
+2025-04-16 20:58:38,588 - INFO - Starting Flask server...
+2025-04-16 20:58:38,626 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-16 20:58:38,628 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-16 20:58:47,033 - INFO - 127.0.0.1 - - [16/Apr/2025 20:58:47] "GET / HTTP/1.1" 200 -
+2025-04-16 20:58:48,121 - INFO - 127.0.0.1 - - [16/Apr/2025 20:58:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-16 20:59:33,079 - INFO - 127.0.0.1 - - [16/Apr/2025 20:59:33] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 20:59:33,087 - INFO - Closing down clientserver connection
+2025-04-16 20:59:36,569 - INFO - 127.0.0.1 - - [16/Apr/2025 20:59:36] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 20:59:38,383 - INFO - 127.0.0.1 - - [16/Apr/2025 20:59:38] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:00:23,082 - INFO - 127.0.0.1 - - [16/Apr/2025 21:00:23] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:00:23,090 - INFO - Closing down clientserver connection
+2025-04-16 21:00:23,206 - INFO - 127.0.0.1 - - [16/Apr/2025 21:00:23] "POST /compare_algorithms HTTP/1.1" 200 -
+2025-04-16 21:00:23,211 - INFO - Closing down clientserver connection
+2025-04-16 21:00:24,954 - INFO - 127.0.0.1 - - [16/Apr/2025 21:00:24] "POST /compare_algorithms HTTP/1.1" 200 -
+2025-04-16 21:00:24,959 - INFO - Closing down clientserver connection
+2025-04-16 21:01:49,347 - INFO - 127.0.0.1 - - [16/Apr/2025 21:01:49] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:07:24,427 - INFO - 127.0.0.1 - - [16/Apr/2025 21:07:24] "GET / HTTP/1.1" 200 -
+2025-04-16 21:07:29,111 - INFO - 127.0.0.1 - - [16/Apr/2025 21:07:29] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:07:47,282 - INFO - 127.0.0.1 - - [16/Apr/2025 21:07:47] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:09:40,262 - INFO - 127.0.0.1 - - [16/Apr/2025 21:09:40] "GET / HTTP/1.1" 200 -
+2025-04-16 21:09:43,105 - INFO - 127.0.0.1 - - [16/Apr/2025 21:09:43] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:10:44,991 - INFO - 127.0.0.1 - - [16/Apr/2025 21:10:44] "GET / HTTP/1.1" 200 -
+2025-04-16 21:10:46,954 - INFO - 127.0.0.1 - - [16/Apr/2025 21:10:46] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:11:00,219 - INFO - 127.0.0.1 - - [16/Apr/2025 21:11:00] "GET / HTTP/1.1" 200 -
+2025-04-16 21:11:02,697 - INFO - 127.0.0.1 - - [16/Apr/2025 21:11:02] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:12:15,005 - INFO - 127.0.0.1 - - [16/Apr/2025 21:12:15] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:12:17,410 - INFO - 127.0.0.1 - - [16/Apr/2025 21:12:17] "GET / HTTP/1.1" 200 -
+2025-04-16 21:12:19,806 - INFO - 127.0.0.1 - - [16/Apr/2025 21:12:19] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:12:24,228 - ERROR - Error starting server: An error occurred while calling o146.cancelAllJobs.
+: java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+This stopped SparkContext was created at:
 
-During handling of the above exception, another exception occurred:
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+py4j.Gateway.invoke(Gateway.java:238)
+py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+java.lang.Thread.run(Thread.java:750)
 
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-04-14 17:22:41,007 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
-    return f(*a, **kw)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o37.sc
-2025-04-14 17:22:41,010 - INFO - Closing down clientserver connection
-2025-04-14 17:22:41,011 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
-    answer = smart_decode(self.stream.readline()[:-1])
-  File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
-    return self._sock.recv_into(b)
-  File "C:\spark\python\pyspark\context.py", line 381, in signal_handler
-    self.cancelAllJobs()
-  File "C:\spark\python\pyspark\context.py", line 2446, in cancelAllJobs
-    self._jsc.sc().cancelAllJobs()
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
-    return f(*a, **kw)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o37.sc
+The currently active SparkContext was created at:
 
-During handling of the above exception, another exception occurred:
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+py4j.Gateway.invoke(Gateway.java:238)
+py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+java.lang.Thread.run(Thread.java:750)
+         
+	at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:122)
+	at org.apache.spark.SparkContext.cancelAllJobs(SparkContext.scala:2591)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
 
-Traceback (most recent call last):
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1038, in send_command
-    response = connection.send_command(command)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
-    raise Py4JNetworkError(
-py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-04-14 17:22:41,012 - INFO - Closing down clientserver connection
-2025-04-14 17:22:41,013 - ERROR - Error loading ratings data: An error occurred while calling o54.csv
-2025-04-14 17:22:41,616 - INFO - Error while receiving.
-Traceback (most recent call last):
-  File "C:\Users\efeba\BIL401Proje\src\data_loader.py", line 90, in load_ratings
-    .csv(ratings_file)
-  File "C:\spark\python\pyspark\sql\readwriter.py", line 740, in csv
-    return self._df(self._jreader.csv(self._spark._sc._jvm.PythonUtils.toSeq(path)))
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
-    return f(*a, **kw)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o54.csv
+2025-04-16 21:12:24,269 - INFO - Closing down clientserver connection
+2025-04-16 21:12:39,045 - INFO - MODEL_DIR: C:\Users\efeba\BIL401Proje\models - Exists: True
+2025-04-16 21:12:39,045 - INFO - ALS_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\als_model - Exists: True
+2025-04-16 21:12:39,046 - INFO - CONTENT_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\content_model - Exists: True
+2025-04-16 21:12:39,047 - INFO - DATA_PATH: C:\Users\efeba\BIL401Proje\archive - Exists: True
+2025-04-16 21:12:39,048 - INFO - movie.csv: True
+2025-04-16 21:12:39,049 - INFO - rating.csv: True
+2025-04-16 21:12:39,057 - INFO - Initializing application...
+2025-04-16 21:12:39,058 - INFO - Trying to start Spark session...
+2025-04-16 21:12:52,141 - INFO - Spark session started successfully.
+2025-04-16 21:12:52,141 - INFO - Loading ALS model from C:\Users\efeba\BIL401Proje\models\als_model...
+2025-04-16 21:13:02,672 - INFO - ALS model loaded successfully
+2025-04-16 21:13:02,672 - INFO - Loading content-based model from C:\Users\efeba\BIL401Proje\models\content_model...
+2025-04-16 21:13:04,188 - INFO - Content-based model loaded successfully
+2025-04-16 21:13:04,189 - INFO - Loading movies from CSV...
+2025-04-16 21:13:04,255 - INFO - Loaded 27278 movies from CSV
+2025-04-16 21:13:04,256 - INFO - Loading ratings from CSV...
+2025-04-16 21:13:33,257 - INFO - Loaded 1000013 ratings from CSV (5.0% sample)
+2025-04-16 21:13:33,348 - INFO - Loaded 20 sample user IDs
+2025-04-16 21:13:33,349 - INFO - Initialization complete
+2025-04-16 21:13:33,350 - INFO - Starting Flask server...
+2025-04-16 21:13:33,403 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-16 21:13:33,404 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-16 21:13:43,030 - INFO - 127.0.0.1 - - [16/Apr/2025 21:13:43] "GET / HTTP/1.1" 200 -
+2025-04-16 21:13:47,324 - INFO - 127.0.0.1 - - [16/Apr/2025 21:13:47] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:14:04,554 - INFO - 127.0.0.1 - - [16/Apr/2025 21:14:04] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:14:06,877 - INFO - 127.0.0.1 - - [16/Apr/2025 21:14:06] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:17:20,412 - INFO - 127.0.0.1 - - [16/Apr/2025 21:17:20] "GET / HTTP/1.1" 200 -
+2025-04-16 21:17:22,304 - INFO - 127.0.0.1 - - [16/Apr/2025 21:17:22] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:17:37,389 - INFO - 127.0.0.1 - - [16/Apr/2025 21:17:37] "GET / HTTP/1.1" 200 -
+2025-04-16 21:17:39,112 - INFO - 127.0.0.1 - - [16/Apr/2025 21:17:39] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:17:43,299 - ERROR - Error starting server: An error occurred while calling o42.cancelAllJobs.
+: java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+This stopped SparkContext was created at:
 
-During handling of the above exception, another exception occurred:
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+py4j.Gateway.invoke(Gateway.java:238)
+py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+java.lang.Thread.run(Thread.java:750)
 
+The currently active SparkContext was created at:
+
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+py4j.Gateway.invoke(Gateway.java:238)
+py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+java.lang.Thread.run(Thread.java:750)
+         
+	at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:122)
+	at org.apache.spark.SparkContext.cancelAllJobs(SparkContext.scala:2591)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
+
+2025-04-16 21:17:43,379 - INFO - Closing down clientserver connection
+2025-04-16 21:17:59,719 - INFO - MODEL_DIR: C:\Users\efeba\BIL401Proje\models - Exists: True
+2025-04-16 21:17:59,720 - INFO - ALS_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\als_model - Exists: True
+2025-04-16 21:17:59,721 - INFO - CONTENT_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\content_model - Exists: True
+2025-04-16 21:17:59,721 - INFO - DATA_PATH: C:\Users\efeba\BIL401Proje\archive - Exists: True
+2025-04-16 21:17:59,724 - INFO - movie.csv: True
+2025-04-16 21:17:59,725 - INFO - rating.csv: True
+2025-04-16 21:17:59,733 - INFO - Initializing application...
+2025-04-16 21:17:59,734 - INFO - Trying to start Spark session...
+2025-04-16 21:18:30,023 - INFO - Spark session started successfully.
+2025-04-16 21:18:30,024 - INFO - Loading ALS model from C:\Users\efeba\BIL401Proje\models\als_model...
+2025-04-16 21:18:39,968 - INFO - ALS model loaded successfully
+2025-04-16 21:18:39,968 - INFO - Loading content-based model from C:\Users\efeba\BIL401Proje\models\content_model...
+2025-04-16 21:18:48,419 - INFO - Content-based model loaded successfully
+2025-04-16 21:18:48,419 - INFO - Loading movies from CSV...
+2025-04-16 21:18:48,495 - INFO - Loaded 27278 movies from CSV
+2025-04-16 21:18:48,496 - INFO - Loading ratings from CSV...
+2025-04-16 21:19:11,883 - INFO - Loaded 1000013 ratings from CSV (5.0% sample)
+2025-04-16 21:19:11,949 - INFO - Loaded 20 sample user IDs
+2025-04-16 21:19:11,949 - INFO - Initialization complete
+2025-04-16 21:19:11,950 - INFO - Starting Flask server...
+2025-04-16 21:19:11,995 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-16 21:19:11,997 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-16 21:19:14,350 - INFO - 127.0.0.1 - - [16/Apr/2025 21:19:14] "GET / HTTP/1.1" 200 -
+2025-04-16 21:19:17,028 - INFO - 127.0.0.1 - - [16/Apr/2025 21:19:17] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:20:28,176 - INFO - 127.0.0.1 - - [16/Apr/2025 21:20:28] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:20:28,185 - INFO - Closing down clientserver connection
+2025-04-16 21:20:34,749 - INFO - 127.0.0.1 - - [16/Apr/2025 21:20:34] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:20:51,164 - INFO - 127.0.0.1 - - [16/Apr/2025 21:20:51] "POST /compare_algorithms HTTP/1.1" 200 -
+2025-04-16 21:20:51,168 - INFO - Closing down clientserver connection
+2025-04-16 21:21:09,472 - INFO - 127.0.0.1 - - [16/Apr/2025 21:21:09] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:22:45,938 - INFO - 127.0.0.1 - - [16/Apr/2025 21:22:45] "GET / HTTP/1.1" 200 -
+2025-04-16 21:22:53,837 - INFO - 127.0.0.1 - - [16/Apr/2025 21:22:53] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:22:54,592 - INFO - 127.0.0.1 - - [16/Apr/2025 21:22:54] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:23:15,970 - INFO - 127.0.0.1 - - [16/Apr/2025 21:23:15] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:23:15,978 - INFO - Closing down clientserver connection
+2025-04-16 21:23:41,023 - INFO - Error while receiving.
 Traceback (most recent call last):
   File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
     answer = smart_decode(self.stream.readline()[:-1])
   File "C:\Program Files\Python310\lib\socket.py", line 705, in readinto
     return self._sock.recv_into(b)
 ConnectionResetError: [WinError 10054] Varolan bir baðlantý uzaktaki bir ana bilgisayar tarafýndan zorla kapatýldý
-2025-04-14 17:22:41,619 - INFO - Closing down clientserver connection
-2025-04-14 17:22:41,619 - ERROR - Exception while sending command.
-Traceback (most recent call last):
-  File "C:\Users\efeba\BIL401Proje\src\data_loader.py", line 90, in load_ratings
-    .csv(ratings_file)
-  File "C:\spark\python\pyspark\sql\readwriter.py", line 740, in csv
-    return self._df(self._jreader.csv(self._spark._sc._jvm.PythonUtils.toSeq(path)))
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\java_gateway.py", line 1322, in __call__
-    return_value = get_return_value(
-  File "C:\spark\python\pyspark\errors\exceptions\captured.py", line 179, in deco
-    return f(*a, **kw)
-  File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\protocol.py", line 334, in get_return_value
-    raise Py4JError(
-py4j.protocol.Py4JError: An error occurred while calling o54.csv
-
-During handling of the above exception, another exception occurred:
-
+2025-04-16 21:23:41,111 - INFO - Closing down clientserver connection
+2025-04-16 21:23:41,113 - ERROR - Exception while sending command.
 Traceback (most recent call last):
   File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 511, in send_command
     answer = smart_decode(self.stream.readline()[:-1])
@@ -1266,18 +828,175 @@ Traceback (most recent call last):
   File "C:\spark\python\lib\py4j-0.10.9.7-src.zip\py4j\clientserver.py", line 539, in send_command
     raise Py4JNetworkError(
 py4j.protocol.Py4JNetworkError: Error while sending or receiving
-2025-04-14 17:22:41,622 - INFO - Closing down clientserver connection
-2025-04-14 17:22:43,660 - INFO - Closing down clientserver connection
-2025-04-14 17:22:45,710 - INFO - Closing down clientserver connection
-2025-04-14 17:22:45,710 - ERROR - Initialization error: An error occurred while calling o59.json
-2025-04-14 17:22:45,710 - INFO - Loading ratings data...
-2025-04-14 17:22:45,710 - INFO - Loading ratings from: C:\Users\efeba\BIL401Proje\archive\rating.csv
-2025-04-14 17:22:47,759 - INFO - Closing down clientserver connection
-2025-04-14 17:22:47,759 - ERROR - Error loading ratings data: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
-2025-04-14 17:22:49,786 - INFO - Closing down clientserver connection
-2025-04-14 17:22:49,786 - ERROR - Fatal error in fallback initialization: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
-2025-04-14 17:22:49,787 - INFO - Closing down clientserver connection
-2025-04-14 17:22:49,787 - INFO - Closing down clientserver connection
-2025-04-14 17:22:49,835 - INFO - Closing down clientserver connection
-2025-04-14 17:22:49,898 - INFO - Closing down clientserver connection
-2025-04-14 17:22:49,898 - INFO - Closing down clientserver connection
+2025-04-16 21:23:41,120 - INFO - Closing down clientserver connection
+2025-04-16 21:23:41,123 - ERROR - Error starting server: An error occurred while calling o16.sc
+2025-04-16 21:23:41,190 - INFO - Closing down clientserver connection
+2025-04-16 21:23:49,453 - INFO - MODEL_DIR: C:\Users\efeba\BIL401Proje\models - Exists: True
+2025-04-16 21:23:49,455 - INFO - ALS_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\als_model - Exists: True
+2025-04-16 21:23:49,456 - INFO - CONTENT_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\content_model - Exists: True
+2025-04-16 21:23:49,457 - INFO - DATA_PATH: C:\Users\efeba\BIL401Proje\archive - Exists: True
+2025-04-16 21:23:49,457 - INFO - movie.csv: True
+2025-04-16 21:23:49,458 - INFO - rating.csv: True
+2025-04-16 21:23:49,467 - INFO - Initializing application...
+2025-04-16 21:23:49,468 - INFO - Trying to start Spark session...
+2025-04-16 21:23:59,700 - INFO - Spark session started successfully.
+2025-04-16 21:23:59,700 - INFO - Loading ALS model from C:\Users\efeba\BIL401Proje\models\als_model...
+2025-04-16 21:24:09,221 - INFO - ALS model loaded successfully
+2025-04-16 21:24:09,222 - INFO - Loading content-based model from C:\Users\efeba\BIL401Proje\models\content_model...
+2025-04-16 21:24:11,400 - INFO - Content-based model loaded successfully
+2025-04-16 21:24:11,400 - INFO - Loading movies from CSV...
+2025-04-16 21:24:11,453 - INFO - Loaded 27278 movies from CSV
+2025-04-16 21:24:11,454 - INFO - Loading ratings from CSV...
+2025-04-16 21:24:36,079 - INFO - Loaded 1000013 ratings from CSV (5.0% sample)
+2025-04-16 21:24:36,144 - INFO - Loaded 20 sample user IDs
+2025-04-16 21:24:36,144 - INFO - Initialization complete
+2025-04-16 21:24:36,146 - INFO - Starting Flask server...
+2025-04-16 21:24:36,193 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-16 21:24:36,195 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-16 21:24:38,714 - INFO - 127.0.0.1 - - [16/Apr/2025 21:24:38] "GET / HTTP/1.1" 200 -
+2025-04-16 21:25:09,916 - INFO - 127.0.0.1 - - [16/Apr/2025 21:25:09] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:25:09,922 - INFO - Closing down clientserver connection
+2025-04-16 21:25:48,786 - INFO - 127.0.0.1 - - [16/Apr/2025 21:25:48] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:25:48,794 - INFO - Closing down clientserver connection
+2025-04-16 21:26:27,519 - INFO - 127.0.0.1 - - [16/Apr/2025 21:26:27] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:26:27,529 - INFO - Closing down clientserver connection
+2025-04-16 21:27:20,382 - INFO - 127.0.0.1 - - [16/Apr/2025 21:27:20] "POST /compare_algorithms HTTP/1.1" 200 -
+2025-04-16 21:27:20,405 - INFO - Closing down clientserver connection
+2025-04-16 21:27:27,844 - INFO - 127.0.0.1 - - [16/Apr/2025 21:27:27] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:30:40,749 - INFO - 127.0.0.1 - - [16/Apr/2025 21:30:40] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:35:48,499 - ERROR - Error starting server: An error occurred while calling o146.cancelAllJobs.
+: java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+This stopped SparkContext was created at:
+
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+py4j.Gateway.invoke(Gateway.java:238)
+py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+java.lang.Thread.run(Thread.java:750)
+
+The currently active SparkContext was created at:
+
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+py4j.Gateway.invoke(Gateway.java:238)
+py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+java.lang.Thread.run(Thread.java:750)
+         
+	at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:122)
+	at org.apache.spark.SparkContext.cancelAllJobs(SparkContext.scala:2591)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
+
+2025-04-16 21:35:48,530 - INFO - Closing down clientserver connection
+2025-04-16 21:35:58,598 - INFO - MODEL_DIR: C:\Users\efeba\BIL401Proje\models - Exists: True
+2025-04-16 21:35:58,598 - INFO - ALS_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\als_model - Exists: True
+2025-04-16 21:35:58,600 - INFO - CONTENT_MODEL_PATH: C:\Users\efeba\BIL401Proje\models\content_model - Exists: True
+2025-04-16 21:35:58,601 - INFO - DATA_PATH: C:\Users\efeba\BIL401Proje\archive - Exists: True
+2025-04-16 21:35:58,601 - INFO - movie.csv: True
+2025-04-16 21:35:58,602 - INFO - rating.csv: True
+2025-04-16 21:35:58,610 - INFO - Initializing application...
+2025-04-16 21:35:58,610 - INFO - Trying to start Spark session...
+2025-04-16 21:36:07,812 - INFO - Spark session started successfully.
+2025-04-16 21:36:07,813 - INFO - Loading ALS model from C:\Users\efeba\BIL401Proje\models\als_model...
+2025-04-16 21:36:16,436 - INFO - ALS model loaded successfully
+2025-04-16 21:36:16,438 - INFO - Loading content-based model from C:\Users\efeba\BIL401Proje\models\content_model...
+2025-04-16 21:36:18,692 - INFO - Content-based model loaded successfully
+2025-04-16 21:36:18,692 - INFO - Loading movies from CSV...
+2025-04-16 21:36:18,754 - INFO - Loaded 27278 movies from CSV
+2025-04-16 21:36:18,755 - INFO - Loading ratings from CSV...
+2025-04-16 21:36:40,444 - INFO - Loaded 1000013 ratings from CSV (5.0% sample)
+2025-04-16 21:36:40,505 - INFO - Loaded 20 sample user IDs
+2025-04-16 21:36:40,505 - INFO - Initialization complete
+2025-04-16 21:36:40,506 - INFO - Starting Flask server...
+2025-04-16 21:36:40,552 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-16 21:36:40,553 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-16 21:36:43,186 - INFO - 127.0.0.1 - - [16/Apr/2025 21:36:43] "GET / HTTP/1.1" 200 -
+2025-04-16 21:36:50,252 - INFO - 127.0.0.1 - - [16/Apr/2025 21:36:50] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:37:10,190 - INFO - 127.0.0.1 - - [16/Apr/2025 21:37:10] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:37:10,196 - INFO - Closing down clientserver connection
+2025-04-16 21:37:13,744 - INFO - 127.0.0.1 - - [16/Apr/2025 21:37:13] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:37:15,751 - INFO - 127.0.0.1 - - [16/Apr/2025 21:37:15] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:37:21,325 - INFO - 127.0.0.1 - - [16/Apr/2025 21:37:21] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:37:28,340 - INFO - 127.0.0.1 - - [16/Apr/2025 21:37:28] "GET /evaluate_algorithms HTTP/1.1" 200 -
+2025-04-16 21:37:45,691 - INFO - 127.0.0.1 - - [16/Apr/2025 21:37:45] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:37:45,704 - INFO - Closing down clientserver connection
+2025-04-16 21:37:49,401 - INFO - 127.0.0.1 - - [16/Apr/2025 21:37:49] "POST /get_recommendations HTTP/1.1" 200 -
+2025-04-16 21:37:49,435 - INFO - Closing down clientserver connection
+2025-04-16 21:37:53,440 - ERROR - Error starting server: An error occurred while calling o120.cancelAllJobs.
+: java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+This stopped SparkContext was created at:
+
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+py4j.Gateway.invoke(Gateway.java:238)
+py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+java.lang.Thread.run(Thread.java:750)
+
+The currently active SparkContext was created at:
+
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+py4j.Gateway.invoke(Gateway.java:238)
+py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+java.lang.Thread.run(Thread.java:750)
+         
+	at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:122)
+	at org.apache.spark.SparkContext.cancelAllJobs(SparkContext.scala:2591)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:750)
+
+2025-04-16 21:37:53,480 - INFO - Closing down clientserver connection
